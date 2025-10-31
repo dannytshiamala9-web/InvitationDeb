@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Invitation Digitale - Deborah & Jordan</title>
+
+<!-- Polices -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet" />
+
+<style>
+/* ===== Variables et base ===== */
+:root{
+  --violet:#7030a0;
+  --violet-2:#5e2a84;
+  --lilas:#a86be8;
+  --fond:#fff7fb;
+  --encre:#222;
+  --soft:#faf6ff;
+  --radius:14px;
+  --shadow:0 6px 20px rgba(0,0,0,.08);
+  --space:clamp(12px,2vw,20px);
+  --fs-sm:clamp(14px,2.4vw,16px);
+  --fs-md:clamp(16px,3vw,18px);
+  --fs-lg:clamp(20px,5vw,28px);
+  --fs-xl:clamp(28px,8vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:#fff;
+  color:var(--encre);
+  font-family:'Roboto',sans-serif;
+  line-height:1.5;
+  scroll-behavior:smooth;
+}
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+.container{
+  max-width:1000px;
+  margin:0 auto;
+  padding:0 var(--space);
+}
+.section{
+  padding:calc(var(--space)*2) 0;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  color:var(--violet);
+  text-align:center;
+  font-size:var(--fs-lg);
+  margin-bottom:1rem;
+}
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:var(--fs-sm);
+  border:1px solid #d9c8f5;
+  transition:all .3s ease;
+}
+.btn.primary{
+  background:var(--lilas);
+  color:#fff;
+  border-color:var(--lilas);
+}
+.btn:hover{
+  opacity:.85;
+  transform:scale(1.02);
+}
+.card{
+  background:var(--soft);
+  border:1px solid #eee;
+  border-radius:var(--radius);
+  padding:14px;box-shadow:var(--shadow);
+}
+.center{
+  text-align:center;
+}
+
+/* ===== Accueil ===== */
+#accueil{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+#accueil::before{
+  content:"";
+  position:absolute; inset:0;
+  background:url("photo1.jpg") center/cover no-repeat;
+  filter: blur(3px);
+  transform: scale(1.06); /* évite les bords nets du flou */
+  z-index:0;
+}
+#accueil::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  z-index:1;
+}
+#accueil .overlay{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+/* Cœur plus grand et responsive */
+.coeur-top{
+  width: clamp(56px, 7vw, 88px);
+  height: auto;
+  opacity:.95;
+  animation:pulse 2s infinite;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+}
+.photo-centre{
+  max-width:min(480px,90vw);
+  border-radius:20px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.3);
+}
+.bottom-text{font-size:var(--fs-sm);color:#fff;margin-top:10px;}
+.arrow{font-size:22px;animation:float 1.6s infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+/* ===== PROGRAMME ===== */
+#programme {
+  position: relative;
+  overflow: hidden;
+  color: #2b1c44;
+}
+
+/* Flou d’arrière-plan sans toucher le texte */
+#programme::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("programme-bg.jpg") center/cover no-repeat;
+  filter: blur(5px);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+/* Voile léger blanc pour lisibilité */
+#programme::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+}
+
+/* Le contenu au-dessus du flou */
+#programme .container {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center; /* ✅ tout le texte centré */
+  padding-bottom: 210px; /* espace pour le mini-calendrier */
+} 
+@media (max-width: 600px) {
+  #programme .container { 
+    padding-bottom: 160px; 
+  }
+}
+.programme-list {
+  display: inline-block; /* ✅ pour centrer la liste elle-même */
+  text-align: left;      /* garde les puces bien lisibles */
+}
+.names{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:1rem;
+}
+.name{
+  font-family:'Great Vibes',cursive;
+  font-size:var(--fs-xl);
+  color:var(--violet);
+}
+.invitation-message{
+  font-size:var(--fs-md);
+  max-width:70ch;
+  margin:0 auto 1rem;
+  text-align:center;
+}
+.programme-list{
+  list-style:none;
+  padding:0;
+  margin:1rem auto;
+  max-width:800px;
+  display:grid;
+  gap:10px;
+}
+.programme-item{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  background:var(--soft);
+  border-radius:12px;
+  padding:10px 15px;
+  border:1px solid #eee;
+}
+.programme-icon{width:28px;height:28px;}
+.note{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:#fff;
+  border:1px dashed #d9c8f5;
+  border-radius:12px;
+  max-width:720px;
+  margin:10px auto 0;
+  padding:10px;
+}
+.note img{width:22px;height:22px;}
+
+/* Mini calendrier bas droite */
+.mini-cal{
+  position:absolute;
+  bottom:15px;
+  right:15px;
+  width:160px;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  font-size:12px;
+  z-index:3;
+  pointer-events:none;
+}
+.mini-cal .calendar-header{
+  text-align:center;
+  font-weight:700;
+  color:#4b2b72;
+  border-bottom:1px solid #eee;
+  padding:6px 0;
+}
+.mini-cal .calendar-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:5px;
+  padding:8px;
+}
+.mini-cal .calendar-grid span{
+  text-align:center;
+  border-radius:6px;
+  aspect-ratio:1;
+}
+.mini-cal .highlight{background:var(--lilas);color:#fff;font-weight:700;}
+@media(max-width:600px){
+  .mini-cal{width:120px;bottom:10px;right:10px;font-size:10px;}
+}
+
+/* ===== Moodboard ===== */
+#moodboard{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:var(--space);
+  text-align:center;
+}
+#moodboard h1{
+  font-family:'Great Vibes',cursive;
+  color:var(--violet);
+  font-size:clamp(26px,8vw,42px);
+  margin:.5rem 0;
+}
+#moodboard h2{
+  font-family:'Playfair Display',serif;
+  color:#4b2b72;
+  margin:0 0 .6rem;
+}
+.mood-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
+}
+.mood-grid img{
+  width:100%;
+  height:100%;
+  border-radius:12px;
+  object-fit:cover;
+  aspect-ratio:3/4;
+}
+
+/* ===== Réservation ===== */
+.reservation-section{
+  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("photo2.jpg") center/cover no-repeat;
+  color:#fff;
+  text-align:center;
+}
+form{
+  max-width:600px;
+  margin:0 auto;
+  text-align:left;
+}
+.form-group{margin-bottom:15px;}
+label{font-weight:600;}
+input,textarea{
+  width:100%;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:12px;
+  font-size:1rem;
+  background:rgba(255,255,255,0.9);
+  color:#333;
+}
+.submit-btn{
+  width:100%;
+  background:var(--lilas);
+  color:#fff;
+  font-size:1rem;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  transition:background .3s;
+}
+.submit-btn:hover{
+  background:var(--violet-2);
+}
+.form-message{
+  text-align:center;
+  margin-top:10px;
+}
+input:invalid, textarea:invalid { 
+  outline: 2px solid #e91e63; 
+}
+
+
+/* ===== Localisation & Contact ===== */
+#infos .grid{display:grid;gap:14px;}
+@media(min-width:800px){#infos .grid{grid-template-columns:1.2fr .8fr;}}
+.map{margin-top:10px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+.map iframe{width:100%;height:280px;border:0;}
+
+/* Animation */
+.reveal{opacity:0;transform:translateY(16px);transition:.6s;}
+.reveal.show{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ACCUEIL -->
+<section id="accueil">
+  <div class="overlay">
+    <img src="coeur.png" alt="coeur" class="coeur-top">
+    <img src="INVITATION.png" alt="Photo centrale" class="photo-centre">
+    <p class="bottom-text">Faites défiler pour découvrir l’événement</p>
+    <div class="arrow">⬇️</div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section id="programme" class="section">
+  <div class="container">
+    <h2 class="section-title reveal">INVITATION</h2>
+    <div class="names reveal">
+      <div class="name">Deborah</div>
+      <div class="name">&amp;</div>
+      <div class="name">Jordan</div>
+    </div>
+    <p class="invitation-message reveal">
+      ont l’immense joie et plaisir de vous convier aux festivités de leur mariage religieux.
+      Votre présence rendra cette soirée encore plus inoubliable. 
+      Rejoignez-nous pour célébrer ensemble l’amour, la joie et la famille.
+    </p>
+
+    <p class="date" >Samedi 18 Octobre 2025</p>
+    <p class="ville">Kinshasa, RDC</p>
+
+    <h2 class="section-title reveal">Programme de la Cérémonie</h2>
+    <ul class="programme-list">
+      <li class="programme-item reveal">
+        <img src="alliances.png" alt="" class="programme-icon">
+        <div><strong>15h30 :</strong> Bénédiction nuptiale à la Cathédrale Notre Dame Médiatrice de Matadi</div>
+      </li>
+      <li class="programme-item reveal">
+        <img src="alliances.png" alt="" class="programme-icon">
+        <div><strong>19h30 :</strong> Soirée dansante à la salle Auberge du Roi<br>Kikanda, route Ango Ango, arrêt Morgue à Matadi</div>
+      </li>
+    </ul>
+    <div class="note reveal">
+      <img src="lunettes.png" alt="lunettes">
+      <span><strong>N.B :</strong> Port de lunettes fumées.</span>
+    </div>
+
+    <!-- Mini calendrier -->
+    <aside class="mini-cal">
+      <div class="calendar-header">Février 2026</div>
+      <div class="calendar-grid">
+        <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
+        <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+        <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+        <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span class="highlight">21</span><span>22</span>
+        <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- MOODBOARD -->
+<section id="moodboard" class="section">
+  <h1 class="reveal">Table d'inspiration</h1>
+  <h2 class="reveal">THÈME : <strong>DOLCE VITA</strong></h2>
+  <p class="reveal">Palette de couleurs</p>
+  <div class="swatches reveal">
+    <div class="swatch" style="background:#7f00ff"></div>
+    <div class="swatch" style="background:#ffe4e1"></div>
+    <div class="swatch" style="background:#c77dff"></div>
+    <div class="swatch" style="background:#d5a6ff"></div>
+    <div class="swatch" style="background:#e6b8ff"></div>
+    <div class="swatch" style="background:#87CEEB"></div>
+    <div class="swatch" style="background:#fffb04"></div>
+  </div>
+  <h3 class="reveal" style="font-family:'Great Vibes',cursive;color:var(--violet);font-size:clamp(22px,6vw,32px);">Outfit Women’s</h3>
+  <div class="mood-grid reveal">
+    <img src="Dolce2.jpg" alt="">
+    <img src="Dolce3.jpg" alt="">
+    <img src="Dolce4.jpg" alt="">
+  </div>
+  <h3 class="reveal" style="font-family:'Great Vibes',cursive;color:var(--violet);font-size:clamp(22px,6vw,32px);margin-top:16px;">Outfit Men</h3>
+  <div class="mood-grid reveal">
+    <img src="Dolce1.jpg" alt="">
+    <img src="photo1.jpg" alt="">
+    <img src="photo1.jpg" alt="">
+  </div>
+</section>
+
+<!-- RÉSERVATION -->
+<section id="reservation" class="reservation-section section">
+  <div class="container">
+    <h2 class="section-title reveal">Réservation</h2>
+    <p class="section-subtitle reveal">Merci de confirmer votre présence et de laisser un mot pour les mariés 💍</p>
+    <form id="reservation-form" class="reveal">
+      <div class="form-group"><label>Prénom</label><input type="text" name="prenom" required></div>
+      <div class="form-group"><label>Postnom</label><input type="text" name="postnom" required></div>
+      <div class="form-group"><label>Téléphone</label><input type="tel" name="telephone" placeholder="243..." required></div>
+      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="exemple@mail.com" required></div>
+      <div class="form-group"><label>Message</label><textarea name="message" rows="3" placeholder="Un petit mot pour les mariés 💖" required></textarea></div>
+      <button type="submit" class="submit-btn">Envoyer</button>
+      <p id="form-message" class="form-message"></p>
+    </form>
+  </div>
+</section>
+
+<!-- LOCALISATION & CONTACT -->
+<section id="infos" class="section">
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <h2>Localisation</h2>
+        <h3>Grand Hôtel de Kinshasa</h3>
+        <p>4 Av. des Batetela, Gombe, Kinshasa</p>
+        <div class="btns">
+          <a href="https://maps.google.com/?q=Grand+Hôtel+de+Kinshasa" class="btn primary">Itinéraire</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Grand+Hôtel+de+Kinshasa" class="btn" target="_blank">Voir sur la carte</a>
+        </div>
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=Grand%20H%C3%B4tel%20de%20Kinshasa&output=embed" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Contact</h2>
+        <h3>Pour toute question / confirmation</h3>
+        <p><strong>Nom :</strong> Contact Réception</p>
+        <p><strong>Téléphone :</strong> +243 818 354 051</p>
+        <p><strong>Email :</strong> boongideborah@gmail.com</p>
+        <div class="btns">
+          <a class="btn primary" href="tel:+243818354051">Appeler</a>
+          <a class="btn" href="https://wa.me/243818354051?text=Bonjour%2C%20je%20souhaite%20confirmer%20ma%20pr%C3%A9sence." target="_blank">WhatsApp</a>
+          <a class="btn" href="mailto:boongideborah@gmail.com?subject=RSVP%20Invitation">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Animation d’apparition
+const els=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('show')}),{threshold:.2});
+els.forEach(el=>obs.observe(el));
+
+// Formulaire → Apps Script
+document.querySelector('#reservation-form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const f=e.target, msg=document.getElementById('form-message');
+  const data=Object.fromEntries(new FormData(f));
+  msg.textContent="⏳ Envoi en cours…"; msg.style.color="lightgray";
+  try{
+    await fetch("https://script.google.com/macros/s/AKfycbxsFP-M9EwpOyBZ7ZDfRxPPh7tG-0GOKcs7ZJ4rJoCtyueTa2j4Y5bNHJJ5_9wABdf6/exec",{method:"POST",body:JSON.stringify(data),mode:"no-cors"});
+    window.location.href="merci.html";
+  }catch(err){
+    msg.textContent="⚠️ Erreur lors de l’envoi.";
+    msg.style.color="red";
+  }
+});
+</script>
+</body>
+</html>

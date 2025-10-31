@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Merci 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{ --violet:#7030a0; --shadow:0 8px 20px rgba(0,0,0,.1); }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      min-height:100vh;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(240,220,255,0.8)),
+                  url('images/photo1.jpg') center/cover no-repeat;
+      text-align:center; 
+      padding:2rem; 
+      font-family:'Playfair Display', serif;
+    }
+    .merci-card{
+      background:rgba(255,255,255,0.95); 
+      padding:2.2rem; 
+      border-radius:20px; 
+      box-shadow:var(--shadow);
+      max-width:520px; 
+      width:100%; 
+      animation:fadeIn 1.2s ease;
+    }
+    h1{
+        font-family:'Great Vibes', cursive; 
+        font-size:3rem; 
+        color:var(--violet); 
+        margin:.2rem 0 1rem
+    }
+    p{
+        color:#4b2b72; 
+        font-size:1.15rem; 
+        line-height:1.6
+    }
+    a.btn{
+        display:inline-block; 
+        margin-top:1.2rem; 
+        background:#a86be8; 
+        color:#fff; 
+        padding:12px 22px; 
+        border-radius:12px; 
+        text-decoration:none; 
+        font-weight:700
+    }
+    a.btn:hover{
+        opacity:.92
+    }
+    @keyframes fadeIn{
+        from{opacity:0;
+            transform:translateY(16px)
+        }
+        to{
+            opacity:1;
+            transform:translateY(0)
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="merci-card">
+    <h1>Merci 💌</h1>
+    <p>Votre message a bien été envoyé.<br/>Les mariés vous remercient chaleureusement pour votre attention et votre présence.</p>
+    <a class="btn" href="index.html">⬅ Retour à l’invitation</a>
+  </div>
+</body>
+</html>
