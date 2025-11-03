@@ -33,19 +33,9 @@ body{
   line-height:1.5;
   scroll-behavior:smooth;
 }
-img{
-  max-width:100%;
-  height:auto;
-  display:block;
-}
-.container{
-  max-width:1000px;
-  margin:0 auto;
-  padding:0 var(--space);
-}
-.section{
-  padding:calc(var(--space)*2) 0;
-}
+img{max-width:100%;height:auto;display:block;}
+.container{max-width:1000px;margin:0 auto;padding:0 var(--space);}
+.section{padding:calc(var(--space)*2) 0;}
 .section-title{
   font-family:'Playfair Display',serif;
   color:var(--violet);
@@ -54,440 +44,159 @@ img{
   margin-bottom:1rem;
 }
 .btn{
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:600;
-  font-size:var(--fs-sm);
-  border:1px solid #d9c8f5;
-  transition:all .3s ease;
+  display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;
+  font-weight:600;font-size:var(--fs-sm);border:1px solid #d9c8f5;transition:all .3s ease;
 }
-.btn.primary{
-  background:var(--lilas);
-  color:#fff;
-  border-color:var(--lilas);
-}
-.btn:hover{
-  opacity:.85;
-  transform:scale(1.02);
-}
-.card{
-  background:var(--soft);
-  border:1px solid #eee;
-  border-radius:var(--radius);
-  padding:14px;box-shadow:var(--shadow);
-}
-.center{
-  text-align:center;
-}
+.btn.primary{background:var(--lilas);color:#fff;border-color:var(--lilas);}
+.btn:hover{opacity:.85;transform:scale(1.02);}
+.card{background:var(--soft);border:1px solid #eee;border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);}
+.center{text-align:center;}
 
 /* ===== Accueil ===== */
 #accueil{
-  position:relative;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+  position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;
 }
 #accueil::before{
-  content:"";
-  position:absolute; inset:0;
-  background:url("photo1.jpg") center/cover no-repeat;
-  filter: blur(1px);
-  transform: scale(1.06); /* évite les bords nets du flou */
-  z-index:0;
+  content:"";position:absolute;inset:0;background:url("photo1.jpg") center/cover no-repeat;
+  filter: blur(3px);transform: scale(1.08);z-index:0;
 }
 #accueil::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.45);
-  z-index:1;
+  content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1;
 }
 #accueil .overlay{
-  position:relative;
-  z-index:2;
-  text-align:center;
-  color:#fff;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:18px;
+  position:relative;z-index:2;text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center;gap:18px;
 }
-/* Cœur plus grand et responsive */
-.coeur-top{
-  width: clamp(56px, 7vw, 88px);
-  height: auto;
-  opacity:.95;
-  animation:pulse 2s infinite;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
-}
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.15)}
-}
-.photo-centre{
-  max-width:min(480px,90vw);
-  border-radius:20px;
-  box-shadow:0 8px 24px rgba(0,0,0,0.3);
-}
-.bottom-text{
-  font-size:var(--fs-sm);
-  color:#fff;
-  margin-top:10px;
-}
-.arrow{
-  font-size:22px;
-  animation:float 1.6s infinite;
-}
-@keyframes float{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(6px);
-  }
-}
+.coeur-top{width: clamp(56px, 7vw, 88px);height: auto;opacity:.95;animation:pulse 2s infinite;filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.photo-centre{max-width:min(480px,90vw);border-radius:20px;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.bottom-text{font-size:var(--fs-sm);color:#fff;margin-top:10px;}
+.arrow{font-size:22px;animation:float 1.6s infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
 /* ===== PROGRAMME ===== */
-#programme {
-  position: relative;
-  overflow: hidden;
-  color: #2b1c44;
+#programme { position: relative; overflow: hidden; color: #2b1c44; }
+/* Fond flou + voile */
+#programme::before{
+  content:"";position:absolute;inset:0;background:url("programme-bg.jpg") center/cover no-repeat;filter:blur(5px);transform:scale(1.1);z-index:0;
+}
+#programme::after{
+  content:"";position:absolute;inset:0;background:rgba(255,255,255,0.8);z-index:1;
+}
+/* Contenu au-dessus, centré, avec espace pour le mini-cal */
+#programme .container{
+  position:relative;z-index:2;max-width:800px;margin:0 auto;text-align:center;
+  padding-bottom:240px;
+}
+@media (max-width:600px){ #programme .container{ padding-bottom:190px; } }
+
+/* Titres dans la section Programme */
+#programme .section-title{
+  font-family:"Playfair Display",serif;color:var(--violet);text-align:center;margin:.5rem 0 1rem;line-height:1.2;
+}
+/* Grand titre "INVITATION" */
+#programme .section-title:first-of-type{
+  font-size: clamp(28px, 6vw, 42px);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+/* Titre "Programme de la Cérémonie" plus petit */
+#programme .section-title:nth-of-type(2){
+  font-size: clamp(20px, 4.2vw, 26px);
+  color: #5e2a84; font-weight: 600;
 }
 
-/* Flou d’arrière-plan sans toucher le texte */
-#programme::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("programme-bg.jpg") center/cover no-repeat;
-  filter: blur(5px);
-  transform: scale(1.1);
-  z-index: 0;
-}
-
-/* Voile léger blanc pour lisibilité */
-#programme::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.8);
-  z-index: 1;
-}
-
-/* Le contenu au-dessus du flou */
-#programme .container {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center; /* ✅ tout le texte centré */
-  padding-bottom: 210px; /* espace pour le mini-calendrier */
-} 
-@media (max-width: 600px) {
-  #programme .container { 
-    padding-bottom: 160px; 
-  }
-}
-.programme-list {
-  display: inline-block; /* ✅ pour centrer la liste elle-même */
-  text-align: left;      /* garde les puces bien lisibles */
-}
-.names{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:1rem;
-}
-.name{
-  font-family:'Great Vibes',cursive;
-  font-size:var(--fs-xl);
-  color:var(--violet);
-}
-.invitation-message{
-  font-size:var(--fs-md);
-  max-width:70ch;
-  margin:0 auto 1rem;
-  text-align:center;
-}
-.programme-list{
-  list-style:none;
-  padding:0;
-  margin:1rem auto;
-  max-width:800px;
-  display:grid;
-  gap:10px;
-}
-.programme-item{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  background:var(--soft);
-  border-radius:12px;
-  padding:10px 15px;
-  border:1px solid #eee;
-}
+.names{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:1rem;}
+.name{font-family:'Great Vibes',cursive;font-size:var(--fs-xl);color:var(--violet);}
+.invitation-message{font-size:var(--fs-md);max-width:70ch;margin:0 auto 1rem;text-align:center;}
+.programme-list{list-style:none;padding:0;margin:1rem auto;max-width:800px;display:grid;gap:10px;}
+.programme-item{display:flex;align-items:flex-start;gap:10px;background:var(--soft);border-radius:12px;padding:10px 15px;border:1px solid #eee;}
 .programme-icon{width:28px;height:28px;}
-.note{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  background:#fff;
-  border:1px dashed #d9c8f5;
-  border-radius:12px;
-  max-width:720px;
-  margin:10px auto 0;
-  padding:10px;
-}
+.note{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1px dashed #d9c8f5;border-radius:12px;max-width:720px;margin:10px auto 0;padding:10px;}
 .note img{width:22px;height:22px;}
 
-/* Mini calendrier bas droite */
+/* Mini calendrier bas droite, aéré */
 .mini-cal{
-  position:absolute;
-  bottom:15px;
-  right:15px;
-  width:160px;
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:12px;
-  box-shadow:var(--shadow);
-  font-size:12px;
-  z-index:3;
-  pointer-events:none;
+  position:absolute;bottom:22px;right:20px;width:160px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:var(--shadow);
+  font-size:12px;z-index:3;pointer-events:none;
 }
-.mini-cal .calendar-header{
-  text-align:center;
-  font-weight:700;
-  color:#4b2b72;
-  border-bottom:1px solid #eee;
-  padding:6px 0;
-}
-.mini-cal .calendar-grid{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:5px;
-  padding:8px;
-}
-.mini-cal .calendar-grid span{
-  text-align:center;
-  border-radius:6px;
-  aspect-ratio:1;
-}
+.mini-cal .calendar-header{ text-align:center;font-weight:700;color:#4b2b72;border-bottom:1px solid #eee;padding:6px 0; }
+.mini-cal .calendar-grid{ display:grid;grid-template-columns:repeat(7,1fr);gap:5px;padding:8px; }
+.mini-cal .calendar-grid span{ text-align:center;border-radius:6px;aspect-ratio:1;display:grid;place-items:center; }
 .mini-cal .highlight{background:var(--lilas);color:#fff;font-weight:700;}
-@media(max-width:600px){
-  .mini-cal{width:120px;bottom:10px;right:10px;font-size:10px;}
-}
+@media(max-width:600px){ .mini-cal{width:130px;bottom:14px;right:12px;font-size:10px;} }
 
 /* ===== Moodboard ===== */
-#moodboard{
-  background:#fff;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:var(--space);
-  text-align:center;
-}
-#moodboard h1{
-  font-family:'Great Vibes',cursive;
-  color:var(--violet);
-  font-size:clamp(26px,8vw,42px);
-  margin:.5rem 0;
-}
-#moodboard h2{
-  font-family:'Playfair Display',serif;
-  color:#4b2b72;
-  margin:0 0 .6rem;
-}
-.mood-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:12px;
-}
-.mood-grid img{
-  width:100%;
-  height:100%;
-  border-radius:12px;
-  object-fit:cover;
-  aspect-ratio:3/4;
-}
-.swatches {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 8px auto 18px;
-  background: transparent;
-  padding: 10px 0;
-}
-
-.swatch {
-  width: 42px;
-  height: 110px;
-  border-radius: 10px;
-  display: inline-block;
-  border: 2px solid rgba(0,0,0,0.05);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-.swatch:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
-}
+#moodboard{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:var(--space);text-align:center;}
+#moodboard h1{font-family:'Great Vibes',cursive;color:var(--violet);font-size:clamp(26px,8vw,42px);margin:.5rem 0;}
+#moodboard h2{font-family:'Playfair Display',serif;color:#4b2b72;margin:0 0 .6rem;}
+.mood-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;}
+.mood-grid img{width:100%;height:100%;border-radius:12px;object-fit:cover;aspect-ratio:3/4;}
+.swatches{display:flex;justify-content:center;align-items:flex-end;flex-wrap:wrap;gap:10px;margin:8px auto 18px;background:transparent;padding:10px 0;}
+.swatch{width:42px;height:110px;border-radius:10px;display:inline-block;border:2px solid rgba(0,0,0,0.05);box-shadow:0 2px 6px rgba(0,0,0,0.08);}
+.swatch:hover{transform:scale(1.05);transition: transform 0.3s ease;}
 
 /* ===== Réservation ===== */
 .reservation-section{
   background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("photo2.jpg") center/cover no-repeat;
-  color:#fff;
-  text-align:center;
+  color:#fff;text-align:center;
 }
-form{
-  max-width:600px;
-  margin:0 auto;
-  text-align:left;
-}
-.form-group{
-  margin-bottom:15px;
-}
-label{
-  font-weight:600;
-}
-input,textarea{
-  width:100%;
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:12px;
-  font-size:1rem;
-  background:rgba(255,255,255,0.9);
-  color:#333;
-}
+form{max-width:600px;margin:0 auto;text-align:left;}
+.form-group{margin-bottom:15px;}
+label{font-weight:600;}
+input,textarea{width:100%;border:1px solid #ddd;border-radius:10px;padding:12px;font-size:1rem;background:rgba(255,255,255,0.9);color:#333;}
 .submit-btn{
-  width:100%;
-  background:var(--lilas);
-  color:#fff;
-  font-size:1rem;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-  transition:background .3s;
+  width:100%;background:var(--lilas);color:#fff;font-size:1rem;padding:12px;border-radius:10px;cursor:pointer;transition:background .3s;
+  border: 2px solid #0d6efd; /* encadrement bleu */
 }
-.submit-btn:hover{
-  background:var(--violet-2);
-}
-.form-message{
-  text-align:center;
-  margin-top:10px;
-}
-input:invalid, textarea:invalid { 
-  outline: 2px solid #e91e63; 
-}
+.submit-btn:hover{ background:var(--violet-2); border-color:#0b5ed7; }
+.form-message{text-align:center;margin-top:10px;}
+input:invalid, textarea:invalid { outline: 2px solid #5f0303; }
 
+/* Titre Réservation en blanc (même taille conservée) */
+#reservation .section-title{ color:#fff !important; }
 
 /* ===== Localisation & Contact ===== */
-#infos .grid{
-  display:grid;
-  gap:14px;
-}
-@media(min-width:800px){
-  #infos .grid{
-    grid-template-columns:1.2fr .8fr;
-  }
-}
-.map{
-  margin-top:10px;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-}
-.map iframe{width:100%;height:280px;border:0;}
+#infos .grid{ display:grid; gap:14px; }
+@media(min-width:800px){ #infos .grid{ grid-template-columns:1.2fr .8fr; } }
+.map{ margin-top:10px; border-radius:12px; overflow:hidden; box-shadow:var(--shadow); }
+.map iframe{ width:100%; height:280px; border:0; }
 
-/* Animation */
-.reveal{
-  opacity:0;
-  transform:translateY(16px);
-  transition:.6s;
-}
-.reveal.show{
-  opacity:1;
-  transform:translateY(0);
-  }
+/* Animation apparition */
+.reveal{opacity:0;transform:translateY(16px);transition:.6s;}
+.reveal.show{opacity:1;transform:translateY(0);}
+
 /* ===== Contact stylé ===== */
 .contact-card{
   --grad: linear-gradient(135deg, rgba(112,48,160,.95), rgba(168,107,232,.9));
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid #eee;
-  box-shadow: 0 12px 30px rgba(0,0,0,.08);
-  overflow: hidden;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  text-align: center; /* ✅ tout le texte centré */
+  background: #fff;border-radius: 16px;border: 1px solid #eee;box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  overflow: hidden;display: grid;grid-template-rows: auto 1fr auto;text-align: center;
 }
-.contact-head{
-  background: var(--grad);
-  color:#fff;
-  padding: 18px;
-  display:flex;align-items:center;gap:12px;
-}
-.contact-avatar{
-  width:48px;height:48px;border-radius:50%;
-  background: rgba(255,255,255,.25);
-  display:grid;place-items:center;
-  font-weight:800;
-  letter-spacing:.5px;
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,.35);
-}
-.contact-title{
-  line-height:1.15;
-  
-}
-.contact-title h3{
-  margin:0;font-size:clamp(18px,2.4vw,20px);
-  
-}
-.contact-title p{
-  margin:2px 0 0;font-size:14px;opacity:.9
-}
-.contact-body{
-  padding:16px; display:grid; gap:10px;
-
-}
-.contact-row{
-  display:flex; align-items:center; gap:10px; color:#432a63; font-size:var(--fs-sm);
-}
-.contact-row .label{
-  min-width:82px; font-weight:700; color:var(--violet);
-}
+.contact-head{ background: var(--grad); color:#fff; padding: 18px; display:flex; align-items:center; gap:12px; }
+.contact-avatar{ width:48px;height:48px;border-radius:50%; background: rgba(255,255,255,.25); display:grid; place-items:center; font-weight:800; letter-spacing:.5px; box-shadow: inset 0 0 0 2px rgba(255,255,255,.35); }
+.contact-title{ line-height:1.15; }
+.contact-title h3{ margin:0; font-size:clamp(18px,2.4vw,20px); }
+.contact-title p{ margin:2px 0 0; font-size:14px; opacity:.9 }
+.contact-body{ padding:16px; display:grid; gap:10px; }
+.contact-row{ display:flex; align-items:center; gap:10px; color:#432a63; font-size:var(--fs-sm); }
+.contact-row .label{ min-width:82px; font-weight:700; color:var(--violet); }
 .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
-.chip{
-  font-size:12px; font-weight:600; color:#5e2a84;
-  border:1px solid #e8d8fb; background:#faf6ff; padding:6px 10px; border-radius:999px;
-}
-.action-grid{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:14px; 
-  background:#faf6ff; border-top:1px dashed #e5d7f8;
-}
-.action-btn{
-  display:flex; align-items:center; justify-content:center; gap:8px;
-  border-radius:12px; border:1px solid #e0cef8; padding:12px 10px;
-  background:#fff; text-decoration:none; font-weight:700; color:#5e2a84;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
+.chip{ font-size:12px; font-weight:600; color:#5e2a84; border:1px solid #e8d8fb; background:#faf6ff; padding:6px 10px; border-radius:999px; }
+.action-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:14px; background:#faf6ff; border-top:1px dashed #e5d7f8; }
+.action-btn{ display:flex; align-items:center; justify-content:center; gap:8px; border-radius:12px; border:1px solid #e0cef8; padding:12px 10px; background:#fff; text-decoration:none; font-weight:700; color:#5e2a84; transition: transform .2s ease, box-shadow .2s ease; }
 .action-btn:hover{ transform: translateY(-2px); box-shadow:0 8px 18px rgba(112,48,160,.12);}
 .action-btn.primary{ background:var(--lilas); border-color:var(--lilas); color:#fff; }
-
-.copy{
-  margin-left:auto; cursor:pointer; font-size:12px; color:#8a6fb4; 
-  border:1px dashed #d9c8f5; padding:4px 8px; border-radius:8px;
-}
+.copy{ margin-left:auto; cursor:pointer; font-size:12px; color:#8a6fb4; border:1px dashed #d9c8f5; padding:4px 8px; border-radius:8px; }
 .copy:hover{ background:#f7f0ff; }
 
-@media (max-width:520px){
-  .action-grid{ grid-template-columns:1fr; }
+@media (max-width:520px){ .action-grid{ grid-template-columns:1fr; } }
+
+/* ===== Titres généraux ===== */
+.section-title, .lc-title{
+  text-align:center;font-family:"Playfair Display",serif;font-weight:700;color:var(--violet);
+  text-transform:uppercase;letter-spacing:1.2px;margin-bottom:1rem;line-height:1.2;
+}
+.lc-title{ font-size: clamp(28px, 6.5vw, 42px); color:#5e2a84; }
+.section-subtitle, .lc-sub{
+  text-align:center;color:#ffffff;font-size:clamp(14px,2.8vw,17px);margin-bottom:1.5rem;
 }
 </style>
 </head>
@@ -512,44 +221,58 @@ input:invalid, textarea:invalid {
       <div class="name">&amp;</div>
       <div class="name">Jordan</div>
     </div>
-    <p class="invitation-message reveal">
-      ont l’immense joie et plaisir de vous convier aux festivités de leur mariage religieux.
-      Votre présence rendra cette soirée encore plus inoubliable. 
-      Rejoignez-nous pour célébrer ensemble l’amour, la joie et la famille.
-    </p>
+    <p class="invitation-message reveal"><strong>Deux coeurs, deux familles, une promesse d'amour éternel.</strong></p>
+    <p>Les familles <strong>BOONGI et NYAMABO</strong> ont la joie de vous convier au mariage de leurs enfants 
+      <strong>Deborah & Jordan</strong></p>
 
-    <p class="date" >Samedi 18 Octobre 2025</p>
-    <p class="ville">Kinshasa, RDC</p>
+    <p class="date">Samedi 06 décembre 2025</p>
+    <p class="ville">Autour de la piscine de l'Hôtel Golden Tulip, Cité Kin Oasis, Bandal. Kinshasa, RDC</p>
 
     <h2 class="section-title reveal">Programme de la Cérémonie</h2>
     <ul class="programme-list">
-      <li class="programme-item reveal">
-        <img src="alliances.png" alt="" class="programme-icon">
-        <div><strong>15h30 :</strong> Bénédiction nuptiale à la Cathédrale Notre Dame Médiatrice de Matadi</div>
-      </li>
-      <li class="programme-item reveal">
-        <img src="alliances.png" alt="" class="programme-icon">
-        <div><strong>19h30 :</strong> Soirée dansante à la salle Auberge du Roi<br>Kikanda, route Ango Ango, arrêt Morgue à Matadi</div>
-      </li>
-    </ul>
-    <div class="note reveal">
-      <img src="lunettes.png" alt="lunettes">
-      <span><strong>N.B :</strong> Port de lunettes fumées.</span>
-    </div>
+      <ul class="programme-list">
+  <li class="programme-item reveal">
+    <span style="font-size:1.3em;">🕒</span>
+    <div><strong>15h00 à 17h00 :</strong> Cérémonie civile et bénédiction nuptiale</div>
+  </li>
+  <li class="programme-item reveal">
+    <span style="font-size:1.3em;">👰🤵</span>
+    <div><strong>18h00 :</strong> Entrée des mariés</div>
+  </li>
+  <li class="programme-item reveal">
+    <span style="font-size:1.3em;">🎁</span>
+    <div><strong>18h45 :</strong> Réception des cadeaux</div>
+  </li>
+  <li class="programme-item reveal">
+    <span style="font-size:1.3em;">🍸</span>
+    <div><strong>19h00 :</strong> Cocktail dînatoire</div>
+  </li>
+  <li class="programme-item reveal">
+    <span style="font-size:1.3em;">🌹</span>
+    <div><strong>22h00 :</strong> Fin de la soirée – Remerciements des mariés</div>
+  </li>
+</ul>
 
-    <!-- Mini calendrier -->
-    <aside class="mini-cal">
-      <div class="calendar-header">Février 2026</div>
-      <div class="calendar-grid">
-        <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
-        <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
-        <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
-        <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
-        <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span class="highlight">21</span><span>22</span>
-        <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
-      </div>
-    </aside>
+<p class="note reveal" style="justify-content:center;text-align:center;">
+  <img src="" alt="" class="note-icon" style="width:22px;height:22px;">
+  <span><strong>N.B :</strong> Tenue chic, sourire et ponctualité exigés 💫</span>
+</p>
   </div>
+
+  <!-- Mini calendrier (Décembre 2025) -->
+  <aside class="mini-cal">
+    <div class="calendar-header">Décembre 2025</div>
+    <div class="calendar-grid">
+      <!-- En-têtes (L à D) -->
+      <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+      <!-- Si 1 Décembre 2025 est Lundi, on aligne de 1 à 7 -->
+      <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span class="highlight">6</span><span>7</span>
+      <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+      <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+      <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+      <span>29</span><span>30</span><span>31</span><span></span><span></span><span></span><span></span>
+    </div>
+  </aside>
 </section>
 
 <!-- MOODBOARD -->
@@ -603,62 +326,58 @@ input:invalid, textarea:invalid {
 <section id="infos" class="section">
   <div class="container">
     <div class="grid">
+
       <div class="card">
-        <h2>Localisation</h2>
-        <h3>Grand Hôtel de Kinshasa</h3>
-        <p>4 Av. des Batetela, Gombe, Kinshasa</p>
-        <div class="btns">
-          <a href="https://maps.google.com/?q=Grand+Hôtel+de+Kinshasa" class="btn primary">Itinéraire</a>
-          <a href="https://www.google.com/maps/search/?api=1&query=Grand+Hôtel+de+Kinshasa" class="btn" target="_blank">Voir sur la carte</a>
+        <h2 class="lc-title">Localisation &amp; Contact</h2>
+
+        <!-- Contact -->
+        <div class="contact-card">
+          <div class="contact-head">
+            <div class="contact-avatar">C</div>
+            <div class="contact-title">
+              <h3>Contact</h3>
+              <p>Pour toute question / confirmation</p>
+            </div>
+          </div>
+          <div class="contact-body">
+            <div class="contact-row"><span class="label">Nom</span><span>Contact Réception</span></div>
+          </div>
+          <div class="action-grid">
+            <a class="action-btn primary" href="tel:+243818354051" aria-label="Appeler">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h2a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.48-1.19a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.6"/></svg>
+              Appeler
+            </a>
+            <a class="action-btn" target="_blank" rel="noopener" href="https://wa.me/243818354051?text=Bonjour%2C%20je%20souhaite%20confirmer%20ma%20pr%C3%A9sence.">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16.1 14.5c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.6.14-.18.27-.69.88-.85 1.06-.16.18-.31.2-.58.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.47-1.84-.15-.27-.02-.41.12-.55.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.6-1.44-.82-1.98-.22-.53-.45-.46-.6-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.73 4.2.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.29.23-.64.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z" fill="currentColor"/><path d="M20.52 3.48A11.94 11.94 0 1 0 3.5 20.5 11.94 11.94 0 0 0 20.52 3.48zM6.36 17.64l.75-2.75a8.06 8.06 0 1 1 2.95 2.95l-2.75.8.05-.99z" fill="currentColor"/></svg>
+              WhatsApp
+            </a>
+            <a class="action-btn" href="mailto:boongideborah@gmail.com?subject=RSVP%20Invitation&body=Bonjour%2C%20je%20confirme%20ma%20pr%C3%A9sence.">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.6"/></svg>
+              Email
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Localisation Golden Tulip -->
+      <div class="contact-card">
+        <div class="contact-head">
+          <div class="contact-avatar">L</div>
+          <div class="contact-title">
+            <h3 class="venue-name">Hôtel Golden Tulip Kin-Oasis</h3>
+            <div class="lc-row">Cité Kin-Oasis, Av. Kasa-Vubu, Kinshasa, RDC</div>
+          </div>
+        </div>
+        <div class="btns" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:12px;">
+          <a href="https://maps.google.com/?q=Hôtel%20Golden%20Tulip%20Kin-Oasis%20Kinshasa" class="btn primary" target="_blank" rel="noopener">Itinéraire</a>
+          <a href="https://www.google.com/maps?q=Hôtel%20Golden%20Tulip%20Kin-Oasis%20Kinshasa&output=embed" class="btn" target="_blank" rel="noopener">Voir sur la carte</a>
         </div>
         <div class="map">
-          <iframe src="https://www.google.com/maps?q=Grand%20H%C3%B4tel%20de%20Kinshasa&output=embed" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps?q=Hôtel%20Golden%20Tulip%20Kin-Oasis%20Kinshasa&output=embed"
+                  loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
       </div>
-      <div class="card">
-        <h2>Contact</h2>
-        <!-- Contact -->
-<div class="contact-card">
-  <!-- Bandeau -->
-  <div class="contact-head">
-    <div class="contact-avatar">CJ</div>
-    <div class="contact-title">
-      <h3>Contact &amp; RSVP</h3>
-      <p>Pour toute question / confirmation</p>
-    </div>
-  </div>
 
-  <!-- Corps -->
-  <div class="contact-body">
-    <div class="contact-row">
-      <span class="label">Nom</span>
-      <span>Contact Réception</span>
-    </div>
-  </div>
-  <!-- Actions -->
-  <div class="action-grid">
-    <a class="action-btn primary" href="tel:+243818354051" aria-label="Appeler">
-      <!-- téléphone (SVG) -->
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h2a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.48-1.19a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.6"/></svg>
-      Appeler
-    </a>
-
-    <a class="action-btn" target="_blank" rel="noopener"
-       href="https://wa.me/243818354051?text=Bonjour%2C%20je%20souhaite%20confirmer%20ma%20pr%C3%A9sence.">
-      <!-- whatsapp (SVG) -->
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16.1 14.5c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.6.14-.18.27-.69.88-.85 1.06-.16.18-.31.2-.58.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.47-1.84-.15-.27-.02-.41.12-.55.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.6-1.44-.82-1.98-.22-.53-.45-.46-.6-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.73 4.2.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.29.23-.64.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z" fill="currentColor"/><path d="M20.52 3.48A11.94 11.94 0 1 0 3.5 20.5 11.94 11.94 0 0 0 20.52 3.48zM6.36 17.64l.75-2.75a8.06 8.06 0 1 1 2.95 2.95l-2.75.8.05-.99z" fill="currentColor"/></svg>
-      WhatsApp
-    </a>
-
-    <a class="action-btn" href="mailto:boongideborah@gmail.com?subject=RSVP%20Invitation&body=Bonjour%2C%20je%20confirme%20ma%20pr%C3%A9sence.">
-      <!-- mail (SVG) -->
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.6"/></svg>
-      Email
-    </a>
-  </div>
-</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -669,7 +388,7 @@ const els=document.querySelectorAll('.reveal');
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('show')}),{threshold:.2});
 els.forEach(el=>obs.observe(el));
 
-// Formulaire → Apps Script
+// Formulaire → Apps Script (redirection merci.html)
 document.querySelector('#reservation-form').addEventListener('submit',async e=>{
   e.preventDefault();
   const f=e.target, msg=document.getElementById('form-message');
@@ -679,8 +398,7 @@ document.querySelector('#reservation-form').addEventListener('submit',async e=>{
     await fetch("https://script.google.com/macros/s/AKfycbxsFP-M9EwpOyBZ7ZDfRxPPh7tG-0GOKcs7ZJ4rJoCtyueTa2j4Y5bNHJJ5_9wABdf6/exec",{method:"POST",body:JSON.stringify(data),mode:"no-cors"});
     window.location.href="merci.html";
   }catch(err){
-    msg.textContent="⚠️ Erreur lors de l’envoi.";
-    msg.style.color="red";
+    msg.textContent="⚠️ Erreur lors de l’envoi."; msg.style.color="red";
   }
 });
 </script>
