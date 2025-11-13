@@ -113,16 +113,66 @@ img{max-width:100%;height:auto;display:block;}
 .note{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1px dashed #d9c8f5;border-radius:12px;max-width:720px;margin:10px auto 0;padding:10px;}
 .note img{width:22px;height:22px;}
 
-/* Mini calendrier bas droite, aéré */
-.mini-cal{
-  position:absolute;bottom:22px;right:20px;width:160px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:var(--shadow);
-  font-size:12px;z-index:3;pointer-events:none;
+/* Mini calendrier bas droite, bien contenu */
+.mini-cal {
+  position: absolute;
+  bottom: 22px;
+  right: 20px;
+  width: 165px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  font-size: 12px;
+  z-index: 3;
+  overflow: hidden; /* ✅ empêche le débordement */
 }
-.mini-cal .calendar-header{ text-align:center;font-weight:700;color:#4b2b72;border-bottom:1px solid #eee;padding:6px 0; }
-.mini-cal .calendar-grid{ display:grid;grid-template-columns:repeat(7,1fr);gap:5px;padding:8px; }
-.mini-cal .calendar-grid span{ text-align:center;border-radius:6px;aspect-ratio:1;display:grid;place-items:center; }
-.mini-cal .highlight{background:var(--lilas);color:#fff;font-weight:700;}
-@media(max-width:600px){ .mini-cal{width:130px;bottom:14px;right:12px;font-size:10px;} }
+
+.mini-cal .calendar-header {
+  text-align: center;
+  font-weight: 700;
+  color: #4b2b72;
+  border-bottom: 1px solid #eee;
+  padding: 6px 0;
+  background: #faf6ff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.mini-cal .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.mini-cal .calendar-grid span {
+  text-align: center;
+  border-radius: 6px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  color: #3b2a56;
+  font-weight: 500;
+}
+
+.mini-cal .highlight {
+  background: var(--lilas);
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+@media (max-width: 600px) {
+  .mini-cal {
+    width: 130px;
+    bottom: 14px;
+    right: 12px;
+    font-size: 10px;
+  }
+}
+
 
 /* ===== Moodboard ===== */
 #moodboard{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:var(--space);text-align:center;}
@@ -233,7 +283,7 @@ input:invalid, textarea:invalid { outline: 2px solid #5f0303; }
       <ul class="programme-list">
   <li class="programme-item reveal">
     <span style="font-size:1.3em;">🕒</span>
-    <div><strong>15h00 à 17h00 :</strong> Cérémonie civile et bénédiction nuptiale</div>
+    <div><strong>14h00 à 16h00 :</strong> Cérémonie civile et bénédiction nuptiale</div>
   </li>
   <li class="programme-item reveal">
     <span style="font-size:1.3em;">👰🤵</span>
@@ -241,7 +291,7 @@ input:invalid, textarea:invalid { outline: 2px solid #5f0303; }
   </li>
   <li class="programme-item reveal">
     <span style="font-size:1.3em;">🎁</span>
-    <div><strong>18h45 :</strong> Réception des cadeaux</div>
+    <div><strong>18h30 :</strong> Réception des cadeaux</div>
   </li>
   <li class="programme-item reveal">
     <span style="font-size:1.3em;">🍸</span>
@@ -261,16 +311,14 @@ input:invalid, textarea:invalid { outline: 2px solid #5f0303; }
   <!-- Mini calendrier (Décembre 2025) -->
   <aside class="mini-cal">
     <div class="calendar-header">Décembre 2025</div>
-    <div class="calendar-grid">
-      <!-- En-têtes (L à D) -->
-      <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
-      <!-- Si 1 Décembre 2025 est Lundi, on aligne de 1 à 7 -->
-      <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span class="highlight">6</span><span>7</span>
-      <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-      <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
-      <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
-      <span>29</span><span>30</span><span>31</span><span></span><span></span><span></span><span></span>
-    </div>
+<div class="calendar-grid">
+  <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span class="highlight">6</span><span>7</span>
+  <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+  <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+  <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+  <span>29</span><span>30</span><span>31</span><span></span><span></span><span></span><span></span>
+</div>
   </aside>
 </section>
 
