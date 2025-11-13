@@ -1,86 +1,141 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Merci 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Great+Vibes&display=swap" rel="stylesheet">
-  <style>
-    :root{ --violet:#7030a0; --shadow:0 8px 20px rgba(0,0,0,.1); }
-    *{box-sizing:border-box} html,body{height:100%}
-    body{
-      margin:0; 
-      display:flex; 
-      align-items:center; 
-      justify-content:center; 
-      min-height:100vh;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(240,220,255,0.8)),
-                  url('images/photo1.jpg') center/cover no-repeat;
-      text-align:center; 
-      padding:2rem; 
-      font-family:'Playfair Display', serif;
-    }
-    .merci-card{
-      background:rgba(255,255,255,0.95); 
-      padding:2.2rem; 
-      border-radius:20px; 
-      box-shadow:var(--shadow);
-      max-width:520px; 
-      width:100%; 
-      animation:fadeIn 1.2s ease;
-    }
-    h1{
-        font-family:'Great Vibes', cursive; 
-        font-size:3rem; 
-        color:var(--violet); 
-        margin:.2rem 0 1rem
-    }
-    p{
-        color:#4b2b72; 
-        font-size:1.15rem; 
-        line-height:1.6
-    }
-    a.btn{
-        display:inline-block; 
-        margin-top:1.2rem; 
-        background:#a86be8; 
-        color:#fff; 
-        padding:12px 22px; 
-        border-radius:12px; 
-        text-decoration:none; 
-        font-weight:700
-    }
-    #programme { position: relative; overflow: hidden; color: #2b1c44; }
-    #programme .container{
-  position:relative;z-index:2;max-width:800px;margin:0 auto;text-align:center;
-  padding-bottom:240px;
-}
-@media (max-width:600px){ #programme .container{ padding-bottom:190px; } }
 
-    a.btn:hover{
-        opacity:.92
+  <!-- mêmes polices que index -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Great+Vibes&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --violet:#315d9e;
+      --violet-2:#1c28c4;
+      --lilas:#6b9de8;
+      --fond:#fff7fb;
+      --encre:#222;
+      --soft:#faf6ff;
+      --shadow:0 10px 30px rgba(0,0,0,.12);
     }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family: 'Playfair Display', serif;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.38), rgba(0,0,0,0.62)),
+        url("photo1.jpg") center/cover no-repeat;
+      -webkit-font-smoothing:antialiased;
+      color:var(--encre);
+      padding:1.5rem;
+    }
+
+    .merci-card{
+      width:100%;
+      max-width:560px;
+      background:rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius:18px;
+      padding:2.2rem 2rem;
+      box-shadow:var(--shadow);
+      text-align:center;
+      animation:fadeIn .9s ease both;
+    }
+
+    h1{
+      margin:0 0 .2rem 0;
+      font-family:'Great Vibes',cursive;
+      font-size:3rem;
+      color:var(--violet);
+      line-height:1;
+    }
+
+    .subtitle{
+      margin:0 0 1rem 0;
+      font-family:'Roboto',sans-serif;
+      color:#4b2b72;
+      font-size:1.05rem;
+    }
+
+    .names{
+      display:flex;
+      justify-content:center;
+      gap:.6rem;
+      align-items:baseline;
+      margin: .9rem 0 1rem;
+    }
+.name{
+  font-family:'Great Vibes',cursive;
+  font-size:2.2rem;
+  color:#1c488a; /* ✔ Bleu moderne */
+}
+
+    .names .amp {
+      font-family:'Playfair Display',serif;
+      font-weight:600;
+      font-size:1.25rem;
+      color:var(--violet-2);
+      transform:translateY(6px);
+    }
+
+    p.message{
+      margin:0 0 1.25rem 0;
+      color:#000;
+      font-family:'Roboto',sans-serif;
+      font-size:1rem;
+      line-height:1.5;
+    }
+
+    a.btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:12px 24px;
+      border-radius:12px;
+      background:var(--lilas);
+      color:#fff;
+      font-weight:700;
+      font-family:'Roboto',sans-serif;
+      border:2px solid #0d1e38; /* bordure bleue demandée */
+      box-shadow: 0 8px 22px #1523741f;
+      transition: transform .14s ease, box-shadow .14s ease, opacity .14s ease;
+    }
+    a.btn:hover{ transform:translateY(-3px); opacity:.98; box-shadow:0 12px 30px rgba(112,48,160,0.12) }
+
+    /* petites responsive tweaks */
+    @media (max-width:420px){
+      h1{ font-size:2.4rem; }
+      .name{ font-size:1.6rem }
+      .merci-card{ padding:1.4rem; border-radius:14px; }
+    }
+
     @keyframes fadeIn{
-        from{opacity:0;
-            transform:translateY(16px)
-        }
-        to{
-            opacity:1;
-            transform:translateY(0)
-        }
+      from{ opacity:0; transform:translateY(12px) scale(.995) }
+      to{ opacity:1; transform:translateY(0) scale(1) }
     }
   </style>
 </head>
 <body>
-  <div class="merci-card">
-    <h1>Merci 💌</h1>
-    <p>Votre message a bien été envoyé.<br/>
-          <div class="names reveal">
+  <div class="merci-card" role="main" aria-labelledby="merci-title">
+    <h1 id="merci-title">Merci 💌</h1>
+
+    <p class="subtitle">Votre message a bien été envoyé.</p>
+
+    <div class="names" aria-hidden="false">
       <div class="name">Deborah</div>
-      <div class="name">&amp;</div>
+      <div class="amp">&amp;</div>
       <div class="name">Jordan</div>
-    </div> vous remercient chaleureusement pour votre attention et votre présence.</p>
-    <a class="btn" href="index.html">⬅ Retour à l’invitation</a>
+    </div>
+
+    <p class="message">Ils vous remercient chaleureusement pour votre attention et votre présence.</p> 
+     <p class="message"> Nous avons bien reçu votre confirmation — à très bientôt !</p>
+
+    <a class="btn" href="index.html" aria-label="Retourner à l'invitation">⬅ Retour à l’invitation</a>
   </div>
 </body>
 </html>
