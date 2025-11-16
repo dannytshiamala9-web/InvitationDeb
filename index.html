@@ -185,6 +185,61 @@ input:invalid, textarea:invalid { outline: 2px solid rgba(255,0,0,0.12); }
 /* Reveal animation */
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
 .reveal.show{opacity:1;transform:translateY(0)}
+/* couleurs / variables héritées du site (si manquantes) */
+:root{ --violet:#7030a0; --lilas:#a86be8; --muted:#6b4a85; --shadow:0 10px 30px rgba(0,0,0,.08); --space:clamp(12px,2vw,20px); }
+
+/* structure / titres */
+#programme{ background: transparent; position:relative; padding-bottom:36px; }
+.prog-title{ font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(28px,5.6vw,42px); text-align:center; color:var(--violet); margin:6px 0 6px; }
+.names.centered{ display:flex; gap:8px; justify-content:center; align-items:baseline; margin:6px 0 10px; }
+.name{ font-family:'Great Vibes',cursive; font-size:clamp(28px,7vw,48px); color:var(--violet); line-height:1; }
+.amp{ font-size:1.1rem; font-family:Playfair Display; color:var(--muted); }
+
+/* intro */
+.prog-intro{ text-align:center; color:#3b2a56; max-width:72ch; margin:6px auto 18px; font-size:clamp(14px,2.4vw,18px); }
+
+/* heading style like reference */
+.programme-heading{ text-align:center; margin:12px 0 20px; }
+.prog-script{ font-family:'Great Vibes',cursive; font-size:clamp(36px,9vw,64px); color:#39273f; line-height:1; margin-bottom:6px; }
+.prog-sub{ color:#5b4667; margin:0; font-size:clamp(14px,2.4vw,16px); }
+
+/* programme grid - first row (3 columns) */
+.prog-row{ display:flex; gap:18px; justify-content:center; align-items:stretch; flex-wrap:wrap; margin:6px auto 14px; max-width:1100px; }
+.prog-row-3 .prog-card{ flex:1 1 220px; min-width:180px; text-align:center; background:transparent; padding:8px 12px; }
+.prog-row-2 .prog-card.large{ flex:1 1 420px; min-width:240px; }
+
+/* cards */
+.prog-card{ border-radius:12px; }
+.prog-card .prog-ico{ width:88px; height:88px; margin:0 auto 12px; display:grid; place-items:center; font-size:2.2rem; border-radius:50%;
+  background: linear-gradient(180deg, rgba(168,107,232,0.12), rgba(112,48,160,0.06));
+  color:var(--violet); box-shadow:var(--shadow); }
+.prog-text{ color:#2b1c44; font-weight:700; margin-bottom:6px; font-size:1rem; }
+.prog-time{ color:var(--muted); font-weight:800; margin-top:6px; }
+
+/* note */
+.prog-note{ text-align:center; color:#4b2b72; font-weight:600; margin-top:8px; }
+
+/* calendar wide */
+.cal-wide{ margin-top:30px; background: linear-gradient(180deg,#fff,#fbf7ff); padding:28px 0 40px; border-top:1px solid rgba(0,0,0,0.03); }
+.cal-wrap{ display:flex; gap:22px; align-items:center; justify-content:space-between; max-width:1100px; padding:0 var(--space); box-sizing:border-box; }
+.cal-left{ min-width:220px; display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
+.save{ font-family:'Great Vibes',cursive; font-size:1.6rem; color:#b07aa5; transform: rotate(-90deg); writing-mode: vertical-rl; }
+.cal-month{ font-family:'Playfair Display',serif; font-size:1.2rem; color:#6b4a85; font-weight:700; }
+
+/* right: the calendar grid container (JS injecte .cal-grid inside) */
+#cal-wide-grid{ flex:1; }
+
+/* responsiveness */
+@media (max-width:900px){
+  .cal-wrap{ flex-direction:column; align-items:stretch; }
+  .save{ transform:none; writing-mode: horizontal-tb; font-size:1.2rem; }
+}
+@media (max-width:520px){
+  .prog-row-3 .prog-card{ flex-basis:100%; max-width:420px; }
+  .prog-row-2 .prog-card.large{ flex-basis:100%; }
+  .prog-script{ font-size:2.4rem; }
+  .prog-card .prog-ico{ width:64px; height:64px; font-size:1.6rem; }
+}
 </style>
 </head>
 <body>
@@ -221,60 +276,57 @@ input:invalid, textarea:invalid { outline: 2px solid rgba(255,0,0,0.12); }
 
     <!-- Petit titre (Programme) -->
     <h3 class="small-title reveal">Programme de la Cérémonie</h3>
+<!-- GRILLE : 1ère rangée (3 colonnes) -->
+    <div class="prog-row prog-row-3">
+      <article class="prog-card">
+        <div class="prog-ico">🚗🕒</div>
+        <div class="prog-text">Cérémonie civile et bénédiction nuptiale</div>
+        <div class="prog-time">• 14h00 à 16h00 •</div>
+      </article>
 
-    <ul class="programme-list">
-      <li class="programme-item reveal">
-        <span>🕒</span>
-        <div><strong>14h00 à 16h00 :</strong> Cérémonie civile et bénédiction nuptiale</div>
-      </li>
-      <li class="programme-item reveal">
-        <span>👰🤵</span>
-        <div><strong>18h00 :</strong> Entrée des mariés</div>
-      </li>
-      <li class="programme-item reveal">
-        <span>🎁</span>
-        <div><strong>18h30 :</strong> Réception des cadeaux</div>
-      </li>
-      <li class="programme-item reveal">
-        <span>🍸</span>
-        <div><strong>19h00 :</strong> Cocktail dînatoire festif et dansant</div>
-      </li>
-      <li class="programme-item reveal">
-        <span>🌹</span>
-        <div><strong>23h00 :</strong> Fin de la soirée – Remerciements des mariés</div>
-      </li>
-    </ul>
+      <article class="prog-card">
+        <div class="prog-ico">👰🤵</div>
+        <div class="prog-text">Entrée des mariés</div>
+        <div class="prog-time">• 18h00 •</div>
+      </article>
 
-    <p class="note reveal" style="justify-content:center;text-align:center;">
-      <span><strong>N.B :</strong> Tenue chic, sourire et ponctualité exigés 💫</span>
-    </p>
+      <article class="prog-card">
+        <div class="prog-ico">🎁</div>
+        <div class="prog-text">Réception des cadeaux</div>
+        <div class="prog-time">• 18h30 •</div>
+      </article>
+    </div>
+
+    <!-- GRILLE : 2ème rangée (2 colonnes larges) -->
+    <div class="prog-row prog-row-2">
+      <article class="prog-card large">
+        <div class="prog-ico">🍽️💃</div>
+        <div class="prog-text">Cocktail dinatoire festif et dansant</div>
+        <div class="prog-time">• 19h00 •</div>
+      </article>
+
+      <article class="prog-card large">
+        <div class="prog-ico">🌹</div>
+        <div class="prog-text">Fin de la Soirée - Remerciements des mariés</div>
+        <div class="prog-time">• 21h30 •</div>
+      </article>
+    </div>
+
+    <p class="prog-note"><strong>Tenue chic, sourire et ponctualité exigés.</strong></p>
   </div>
 
-  <!-- Mini calendrier (Décembre 2025) -->
-  <aside class="mini-cal" aria-label="Calendrier">
-    <div class="calendar-header">Décembre 2025</div>
-    <div class="calendar-grid" aria-hidden="false">
-      <!-- en-têtes -->
-      <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
-
-      <!-- 1ère semaine -->
-      <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span class="highlight">6</span><span>7</span>
-
-      <!-- 2ème -->
-      <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-
-      <!-- 3ème -->
-      <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
-
-      <!-- 4ème -->
-      <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
-
-      <!-- 5ème -->
-      <span>29</span><span>30</span><span>31</span><span></span><span></span><span></span><span></span>
+  <!-- CALENDRIER LARGE (bas de section) -->
+  <div class="cal-wide">
+    <div class="cal-wrap container">
+      <div class="cal-left">
+        <div class="save">Save the date</div>
+        <div class="cal-month">Décembre 2025</div>
+      </div>
+      <div class="cal-right" id="cal-wide-grid" aria-hidden="false"></div>
     </div>
-  </aside>
+  </div>
 </section>
-
+    
 <!-- MOODBOARD -->
 <section id="moodboard" class="section">
   <div class="container">
@@ -404,6 +456,78 @@ document.querySelector('#reservation-form').addEventListener('submit', async e =
     msg.textContent = "⚠️ Erreur lors de l’envoi."; msg.style.color = "red";
   }
 });
+(function makeWideCalendar(){
+  const mount = document.getElementById('cal-wide-grid');
+  if(!mount) return;
+
+  // config
+  const year = 2025;
+  const monthZeroIndex = 11; // décembre (0=janvier)
+  const highlight = 6; // jour mis en évidence
+
+  // create wrapper
+  const grid = document.createElement('div');
+  grid.className = 'cal-grid';
+  // css minimal pour la grille (injecté ici pour être sûr que tout marche)
+  grid.style.display = 'grid';
+  grid.style.gridTemplateColumns = 'repeat(7, 1fr)';
+  grid.style.gap = '8px';
+  grid.style.padding = '14px';
+  grid.style.background = '#fff';
+  grid.style.borderRadius = '12px';
+  grid.style.border = '1px solid #efe6f8';
+  grid.style.boxShadow = '0 10px 30px rgba(112,48,160,0.04)';
+
+  // headers L M M J V S D
+  const dow = ['L','M','M','J','V','S','D'];
+  dow.forEach(d=>{
+    const h = document.createElement('div');
+    h.textContent = d;
+    h.style.textAlign = 'center';
+    h.style.fontWeight = '700';
+    h.style.color = '#8a6fb4';
+    h.style.padding = '6px 0';
+    grid.appendChild(h);
+  });
+
+  // compute blanks (JS getDay: 0=Sun)
+  const firstJs = new Date(year, monthZeroIndex, 1).getDay();
+  const blanks = (firstJs === 0) ? 6 : firstJs - 1;
+  for(let i=0;i<blanks;i++){
+    const e = document.createElement('div');
+    e.className = 'blank';
+    e.textContent = '';
+    e.style.opacity = '0.0';
+    grid.appendChild(e);
+  }
+
+  const days = new Date(year, monthZeroIndex + 1, 0).getDate();
+  for(let d=1; d<=days; d++){
+    const c = document.createElement('div');
+    c.className = 'day';
+    c.textContent = d;
+    c.style.height = '44px';
+    c.style.display = 'flex';
+    c.style.alignItems = 'center';
+    c.style.justifyContent = 'center';
+    c.style.borderRadius = '8px';
+    c.style.fontWeight = '700';
+    c.style.color = '#46324a';
+    if(d === highlight){
+      c.style.background = 'linear-gradient(135deg, var(--lilas), var(--violet))';
+      c.style.color = '#fff';
+      c.style.boxShadow = '0 8px 18px rgba(168,107,232,0.18)';
+      // little decorative dot
+      const dot = document.createElement('span');
+      dot.style.position = 'absolute';
+      // not necessary to add; leave as visual highlight
+    }
+    grid.appendChild(c);
+  }
+
+  // mount
+  mount.appendChild(grid);
+})();
 </script>
 </body>
 </html>
