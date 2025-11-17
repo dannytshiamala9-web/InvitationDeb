@@ -1,257 +1,169 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>Invitation Digitale - Deborah & Jordan</title>
-
-<!-- Polices -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet" />
-
 <style>
-/* ===== Variables et base (Palette C : Pastel frais) ===== */
+/* ===== Palette & base ===== */
 :root{
-  --clr-primary: #4066FF;    /* bleu vif (primaire) */
-  --clr-secondary: #87CEEB;  /* ciel (secondaire) */
-  --clr-accent: #FFE4E1;     /* pêche (accent) */
-  --clr-contrast: #1f2937;   /* gris foncé texte */
-  --clr-muted: #6b7280;
-  --radius:14px;
-  --shadow:0 6px 20px rgba(0,0,0,.08);
-  --space:clamp(12px,2vw,20px);
-  --fs-sm:clamp(14px,2.4vw,16px);
-  --fs-md:clamp(16px,3vw,18px);
-  --fs-lg:clamp(20px,5vw,28px);
-  --fs-xl:clamp(28px,8vw,40px);
+  --clr-primary: #4066FF;      /* bleu vif */
+  --clr-secondary: #87CEEB;    /* bleu ciel */
+  --clr-accent: #FFE4E1;       /* pêche clair */
+  --muted: #6b7280;
+  --text: #1f2937;
+  --soft-bg: #faf6ff;
+  --radius: 14px;
+  --shadow-lg: 0 20px 40px rgba(64,102,255,0.10);
+  --shadow-sm: 0 8px 20px rgba(0,0,0,0.06);
+  --space: clamp(12px, 2vw, 20px);
+  --fs-sm: clamp(14px,2.4vw,16px);
+  --fs-md: clamp(16px,3vw,18px);
+  --fs-lg: clamp(20px,5vw,28px);
+  --fs-xl: clamp(28px,8vw,40px);
 }
-
-/* Reset & basics */
-*{box-sizing:border-box;margin:0;padding:0;}
+*{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
+  font-family: 'Roboto', system-ui, sans-serif;
+  color:var(--text);
   background:#fff;
-  color:var(--clr-contrast);
-  font-family:'Roboto',sans-serif;
-  line-height:1.5;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
   scroll-behavior:smooth;
 }
-img{max-width:100%;height:auto;display:block;}
-.container{max-width:1000px;margin:0 auto;padding:0 var(--space);}
-.section{padding:calc(var(--space)*2) 0;}
-.card{background:#fff;border:1px solid #eee;border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);}
+img{max-width:100%;height:auto;display:block}
 
-/* Buttons base */
-.btn{
-  display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;
-  font-weight:600;font-size:var(--fs-sm);border:1px solid rgba(0,0,0,0.06);transition:all .25s ease;
-}
-.btn.primary{
-  background: linear-gradient(135deg, var(--clr-secondary), var(--clr-primary));
-  color:#fff;
-  border:0;
-}
-.btn.ghost{
-  background:transparent;color:var(--clr-primary);border:2px solid rgba(64,102,255,0.12);
-}
+/* Layout */
+.container{max-width:1100px;margin:0 auto;padding:0 var(--space)}
+.section{padding:calc(var(--space)*2) 0}
 
-/* -----------------------------
-   Titles: big-title / section-title / small-title
-   ----------------------------- */
-.big-title{
-  font-family:"Playfair Display",serif;
-  color:var(--clr-primary);
-  font-weight:800;
-  font-size:clamp(32px,7vw,56px);
-  line-height:1.02;margin:0 0 .4rem;
-  letter-spacing:.6px;
-}
-.section-title{
-  font-family:"Playfair Display",serif;
-  color:var(--clr-primary);
-  font-weight:700;
-  font-size:clamp(22px,5.6vw,36px);
-  margin-bottom:.6rem;
-  text-align:center;
-  letter-spacing:1px;
-}
-.small-title{
-  font-family:"Playfair Display",serif;
-  color:var(--clr-secondary);
-  font-weight:600;
-  font-size:clamp(14px,3.2vw,18px);
-  margin-top:.2rem;margin-bottom:.6rem;text-align:center;
-}
-.section-subtitle{
-  color:var(--clr-muted);font-size:clamp(13px,2.6vw,16px);margin-bottom:1rem;font-weight:500;text-align:center;
-}
-/* decorative underline for section-title */
-.section-title::after{
-  content:"";display:block;width:72px;height:4px;border-radius:999px;margin:10px auto 0;
-  background: linear-gradient(90deg,var(--clr-secondary),var(--clr-accent));
-  opacity:.95;
-}
+/* Titles */
+.big-title{font-family:"Playfair Display",serif;color:var(--clr-primary);font-weight:800;font-size:clamp(32px,7vw,56px);line-height:1.02;margin:0 0 .4rem}
+.section-title{font-family:"Playfair Display",serif;color:var(--clr-primary);font-weight:700;font-size:clamp(22px,5.6vw,36px);text-align:center;margin-bottom:.6rem}
+.small-title{font-family:"Playfair Display",serif;color:var(--clr-secondary);font-weight:600;font-size:clamp(14px,3.2vw,18px);text-align:center;margin-bottom:.4rem}
+.section-subtitle{color:var(--muted);font-size:clamp(13px,2.6vw,16px);margin-bottom:1rem;text-align:center}
 
-/* ===== Accueil ===== */
-#accueil{
-  position:relative;
-  min-height:100vh;
+/* Buttons */
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid rgba(0,0,0,0.06);}
+.btn.primary{background:linear-gradient(135deg,var(--clr-secondary),var(--clr-primary));color:#fff;border:0}
+
+/* ACCUEIL */
+#accueil{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#accueil::before{content:"";position:absolute;inset:0;background:url("photo10.jpg") center/cover no-repeat;filter:blur(2px) brightness(.9);transform:scale(1.04);z-index:0}
+#accueil::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.36));z-index:1}
+#accueil .overlay{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:16px;color:#fff}
+.coeur-top{width:clamp(60px,8vw,96px);opacity:0.98;animation:pulse 2s infinite;filter:drop-shadow(0 8px 28px rgba(0,0,0,0.35))}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+.photo-centre{max-width:min(480px,86vw);border-radius:16px;box-shadow:var(--shadow-lg)}
+.bottom-text{font-size:var(--fs-sm)}
+.arrow{font-size:22px;animation:float 1.6s infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* PROGRAMME - container + background blur handled via pseudo elements */
+#programme{position:relative;overflow:visible;padding-bottom:10px}
+#programme::before{content:"";position:absolute;inset:0;background:url("programme-bg.jpg") center/cover no-repeat;filter:blur(6px) saturate(.9);transform:scale(1.06);z-index:0}
+#programme::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,0.86);z-index:1}
+#programme .container{position:relative;z-index:2;max-width:980px;margin:0 auto;text-align:center;padding-top:32px;padding-bottom:6px}
+
+/* names / invitation text */
+.names{display:flex;gap:8px;justify-content:center;align-items:baseline;margin:0 auto 8px}
+.name{font-family:'Great Vibes',cursive;font-size:clamp(28px,7vw,56px);color:var(--clr-primary);line-height:1}
+.invitation-message{font-size:var(--fs-md);max-width:72ch;margin:0 auto 8px;color:#32243a}
+
+/* Programme cards layout (like reference) */
+.prog-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:6px auto 12px;max-width:1100px}
+.prog-card{flex:1 1 220px;min-width:180px;text-align:center;background:transparent;padding:8px 12px;border-radius:12px}
+.prog-ico{width:86px;height:86px;margin:0 auto 12px;display:grid;place-items:center;font-size:2rem;border-radius:50%;
+  background:linear-gradient(180deg, rgba(168,107,232,0.12), rgba(64,102,255,0.06)); color:var(--clr-primary); box-shadow:var(--shadow-sm)}
+.prog-text{color:#2b1c44;font-weight:700;margin-bottom:6px;font-size:1rem}
+.prog-time{color:var(--muted);font-weight:700;margin-top:6px}
+.prog-note{margin-top:10px;color:#4b2b72;font-weight:700}
+
+/* CALENDAR WIDE (glossy) */
+.cal-wide{margin-top:8px;background:linear-gradient(180deg,#fff,#fbf7ff);padding:10px 0 18px;border-top:1px solid rgba(0,0,0,0.02)}
+.cal-wrap{display:flex;gap:18px;align-items:center;justify-content:center;max-width:1100px;margin:0 auto;padding:0 var(--space);box-sizing:border-box}
+.cal-left{min-width:140px;display:flex;flex-direction:column;gap:8px;align-items:center}
+.save{font-family:'Great Vibes',cursive;font-size:1.4rem;color:#b07aa5;transform: rotate(-90deg);writing-mode:vertical-rl;margin-right:6px}
+.cal-month{font-family:'Playfair Display',serif;font-size:1.05rem;color:#6b4a85;font-weight:700}
+
+/* calendar grid (styled classy) */
+.cal-grid{
+  flex:1;
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap:8px;
+  padding:14px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(245,240,255,0.95));
+  border-radius:12px;
+  border:1px solid rgba(112,48,160,0.06);
+  box-shadow: 0 18px 40px rgba(112,48,160,0.06);
+  align-items:stretch;
+  box-sizing:border-box;
+}
+/* Header cells (L..D) */
+.cal-grid .dow{font-weight:800;color:#8a6fb4;text-align:center;padding:6px 0}
+.cal-grid .day{
+  height:32px;                    /* <- réduit comme demandé */
   display:flex;
   align-items:center;
   justify-content:center;
-  overflow:hidden;
+  border-radius:8px;
+  font-weight:700;
+  color:#46324a;
+  background:transparent;
+  transition:transform .12s ease, box-shadow .12s ease;
+  font-size:0.88rem;
 }
-#accueil::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("photo.jpg") center/cover no-repeat;
-  filter: blur(1px);transform: scale(1.08);z-index:0;}
-#accueil::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.35);z-index:1;}
-#accueil .overlay{position:relative;z-index:2;text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center;gap:18px;}
-.coeur-top{width:clamp(56px,7vw,88px);opacity:.98;animation:pulse 2s infinite;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25));}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-.photo-centre{max-width:min(480px,90vw);border-radius:20px;box-shadow:0 8px 24px rgba(0,0,0,0.28);}
-.bottom-text{font-size:var(--fs-sm);color:#fff;margin-top:10px;}
-.arrow{font-size:22px;animation:float 1.6s infinite;}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-
-/* ===== Programme ===== */
-#programme{position:relative;overflow:hidden;color:var(--clr-contrast);}
-#programme::before{content:"";position:absolute;inset:0;background:url("programme-bg.jpg") center/cover no-repeat;filter:blur(5px);transform:scale(1.1);z-index:0;}
-#programme::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,0.82);z-index:1;}
-#programme .container{position:relative;z-index:2;max-width:800px;margin:0 auto;text-align:center;padding-bottom:220px;}
-@media(max-width:600px){#programme .container{padding-bottom:180px;}}
-
-.names{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:1rem;}
-.name{font-family:'Great Vibes',cursive;font-size:var(--fs-xl);color:var(--clr-primary);}
-.invitation-message{font-size:var(--fs-md);max-width:70ch;margin:0 auto 1rem;text-align:center;}
-.programme-list{list-style:none;padding:0;margin:1rem auto;max-width:800px;display:grid;gap:10px;}
-.programme-item{display:flex;align-items:flex-start;gap:12px;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid rgba(0,0,0,0.04);}
-.programme-item span{font-size:1.2em;}
-.programme-icon{width:28px;height:28px;}
-.note{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1px dashed rgba(64,102,255,0.14);border-radius:12px;max-width:720px;margin:10px auto 0;padding:10px;}
-.note img{width:22px;height:22px;}
-
-/* ===== Mini calendrier corrigé ===== */
-.mini-cal{position:absolute;bottom:20px;right:18px;width:165px;background:#fff;border:1px solid #eee;border-radius:12px;box-shadow:var(--shadow);font-size:12px;z-index:3;overflow:visible;padding:0;box-sizing:border-box;}
-.mini-cal .calendar-header{text-align:center;font-weight:700;color:var(--clr-primary);border-bottom:1px solid #f0f0f0;padding:6px 0;background:#fafcff;border-top-left-radius:12px;border-top-right-radius:12px;}
-.mini-cal .calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:8px;width:100%;box-sizing:border-box;}
-.mini-cal .calendar-grid span{display:grid;place-items:center;aspect-ratio:1;min-width:0;padding:2px;color:var(--clr-contrast);font-weight:500;border-radius:6px;overflow:hidden;}
-.mini-cal .highlight{background:var(--clr-secondary);color:#fff;font-weight:700;border:1px solid rgba(0,0,0,0.03);}
-@media(max-width:420px){.mini-cal{width:140px;right:10px;bottom:12px;font-size:10px}.mini-cal .calendar-grid{gap:3px;padding:6px}}
-
-/* ===== Moodboard ===== */
-#moodboard{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:var(--space);text-align:center;}
-.mood-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;}
-.mood-grid img{width:100%;height:100%;border-radius:12px;object-fit:cover;aspect-ratio:3/4;}
-.swatches{display:flex;justify-content:center;align-items:flex-end;flex-wrap:wrap;gap:10px;margin:8px auto 18px;padding:10px 0;}
-.swatch{width:42px;height:110px;border-radius:10px;display:inline-block;border:2px solid rgba(0,0,0,0.05);box-shadow:0 2px 6px rgba(0,0,0,0.08);}
-
-/* ===== Réservation ===== */
-.reservation-section{background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url("photo2.jpg") center/cover no-repeat;color:#fff;text-align:center;}
-form{max-width:600px;margin:0 auto;text-align:left;}
-#reservation .section-subtitle {
-  color: #fff !important;
-}
-.form-group{margin-bottom:15px;}
-label{font-weight:600;color:#fff;}
-input,textarea{width:100%;border:1px solid rgba(0,0,0,0.06);border-radius:10px;padding:12px;font-size:1rem;background:rgba(255,255,255,0.95);color:#222;}
-/* Bouton envoyer : gradient (lilas/bleu) mais bordure bleue demandée */
-.submit-btn{
-  width:100%;
-  background: linear-gradient(135deg, var(--clr-secondary), var(--clr-primary));
+.cal-grid .day:hover{ transform: translateY(-4px); box-shadow: 0 8px 20px rgba(64,102,255,0.08) }
+.cal-grid .highlight{
+  background:linear-gradient(135deg,var(--clr-secondary),var(--clr-primary));
   color:#fff;
-  font-size:1rem;
-  padding:12px;
-  border-radius:10px;
-  cursor:pointer;
-  transition:background .25s;
-  border: 2px solid #0d6efd; /* <-- bordure bleue conservée */
-  box-shadow:0 8px 24px rgba(64,102,255,0.12);
+  box-shadow:0 10px 26px rgba(64,102,255,0.14);
 }
-.submit-btn:hover{ filter:brightness(.98); border-color:#0b5ed7; }
-.form-message{text-align:center;margin-top:10px;}
-input:invalid, textarea:invalid { outline: 2px solid rgba(255,0,0,0.12); }
 
-/* Titre Réservation en blanc (même taille conservée) */
-#reservation .section-title{ color:#fff !important; }
+/* make calendar compact on small screens */
+@media(max-width:920px){
+  .cal-wrap{flex-direction:column;align-items:center}
+  .save{transform:none;writing-mode:horizontal-tb}
+}
+@media(max-width:460px){
+  .cal-grid{gap:6px;padding:10px}
+  .cal-grid .day{height:28px;font-size:0.82rem}
+}
 
-/* ===== Localisation & Contact ===== */
-#infos .grid{display:grid;gap:14px;}
-@media(min-width:800px){#infos .grid{grid-template-columns:1.2fr .8fr}}
-.map{margin-top:10px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}.map iframe{width:100%;height:280px;border:0}
+/* MOODBOARD */
+#moodboard{padding-top:10px}
+.mood-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.mood-grid img{width:100%;height:100%;border-radius:12px;object-fit:cover;aspect-ratio:3/4}
+.swatches{display:flex;justify-content:center;align-items:flex-end;flex-wrap:wrap;gap:10px;margin:8px auto 18px;padding:10px 0}
+.swatch{width:42px;height:110px;border-radius:10px;border:2px solid rgba(0,0,0,0.05);box-shadow:0 6px 18px rgba(0,0,0,0.06)}
 
-/* Contact card styles */
-.contact-card{--grad:linear-gradient(135deg,var(--clr-primary),var(--clr-secondary));background:#fff;border-radius:16px;border:1px solid #eee;box-shadow:0 12px 30px rgba(0,0,0,.08);overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;text-align:center;}
-.contact-head{background:var(--grad);color:#fff;padding:18px;display:flex;align-items:center;gap:12px;}
-.contact-avatar{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-weight:800;letter-spacing:.5px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}
-.contact-title h3{margin:0;font-size:clamp(18px,2.4vw,20px)}
-.contact-body{padding:16px;display:grid;gap:10px}
-.contact-row{display:flex;align-items:center;gap:10px;color:var(--clr-contrast);font-size:var(--fs-sm)}
-.contact-row .label{min-width:82px;font-weight:700;color:var(--clr-primary)}
-.action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px;background:#faf6ff;border-top:1px dashed rgba(64,102,255,0.06)}
-.action-btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;border:1px solid rgba(64,102,255,0.08);padding:12px 10px;background:#fff;text-decoration:none;font-weight:700;color:var(--clr-primary);transition:transform .18s ease,box-shadow .18s ease}
-.action-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(64,102,255,0.08)}
-.action-btn.primary{background:linear-gradient(135deg,var(--clr-secondary),var(--clr-primary));color:#fff;border-color:transparent}
+/* RESERVATION */
+.reservation-section{background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url("photo2.jpg") center/cover no-repeat;color:#fff;text-align:center}
+#reservation .section-title{color:#fff}
+#reservation .section-subtitle{color:#fff}
+form{max-width:640px;margin:0 auto;text-align:left}
+.form-group{margin-bottom:14px}
+label{font-weight:700;color:#fff;display:block;margin-bottom:6px}
+input,textarea{width:100%;border-radius:10px;padding:12px;border:1px solid rgba(0,0,0,0.06);font-size:1rem;background:rgba(255,255,255,0.96);color:#222}
+input:invalid,textarea:invalid{outline:2px solid rgba(255,0,0,0.12)}
+.submit-btn{
+  width:100%;padding:12px;border-radius:10px;border:2px solid #0d6efd;background:linear-gradient(135deg,var(--clr-secondary),var(--clr-primary));color:#fff;font-weight:800;cursor:pointer;box-shadow:0 12px 30px rgba(64,102,255,0.10)
+}
+.submit-btn:hover{filter:brightness(.98);border-color:#0b5ed7}
 
-/* Reveal animation */
-.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+/* LOCALISATION & CONTACT */
+#infos .grid{display:grid;gap:14px}
+@media(min-width:900px){#infos .grid{grid-template-columns:1.2fr .8fr}}
+.map{margin-top:12px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.map iframe{width:100%;height:260px;border:0}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}
 .reveal.show{opacity:1;transform:translateY(0)}
-/* couleurs / variables héritées du site (si manquantes) */
-:root{ --violet:#7030a0; --lilas:#a86be8; --muted:#6b4a85; --shadow:0 10px 30px rgba(0,0,0,.08); --space:clamp(12px,2vw,20px); }
-
-/* structure / titres */
-#programme{ background: transparent; position:relative; padding-bottom:36px; }
-.prog-title{ font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(28px,5.6vw,42px); text-align:center; color:var(--violet); margin:6px 0 6px; }
-.names.centered{ display:flex; gap:8px; justify-content:center; align-items:baseline; margin:6px 0 10px; }
-.name{ font-family:'Great Vibes',cursive; font-size:clamp(28px,7vw,48px); color:var(--violet); line-height:1; }
-.amp{ font-size:1.1rem; font-family:Playfair Display; color:var(--muted); }
-
-/* intro */
-.prog-intro{ text-align:center; color:#3b2a56; max-width:72ch; margin:6px auto 18px; font-size:clamp(14px,2.4vw,18px); }
-
-/* heading style like reference */
-.programme-heading{ text-align:center; margin:12px 0 20px; }
-.prog-script{ font-family:'Great Vibes',cursive; font-size:clamp(36px,9vw,64px); color:#39273f; line-height:1; margin-bottom:6px; }
-.prog-sub{ color:#5b4667; margin:0; font-size:clamp(14px,2.4vw,16px); }
-
-/* programme grid - first row (3 columns) */
-.prog-row{ display:flex; gap:18px; justify-content:center; align-items:stretch; flex-wrap:wrap; margin:6px auto 14px; max-width:1100px; }
-.prog-row-3 .prog-card{ flex:1 1 220px; min-width:180px; text-align:center; background:transparent; padding:8px 12px; }
-.prog-row-2 .prog-card.large{ flex:1 1 420px; min-width:240px; }
-
-/* cards */
-.prog-card{ border-radius:12px; }
-.prog-card .prog-ico{ width:88px; height:88px; margin:0 auto 12px; display:grid; place-items:center; font-size:2.2rem; border-radius:50%;
-  background: linear-gradient(180deg, rgba(168,107,232,0.12), rgba(112,48,160,0.06));
-  color:var(--violet); box-shadow:var(--shadow); }
-.prog-text{ color:#2b1c44; font-weight:700; margin-bottom:6px; font-size:1rem; }
-.prog-time{ color:var(--muted); font-weight:800; margin-top:6px; }
-
-/* note */
-.prog-note{ text-align:center; color:#4b2b72; font-weight:600; margin-top:8px; }
-
-/* calendar wide */
-.cal-wide{ margin-top:30px; background: linear-gradient(180deg,#fff,#fbf7ff); padding:28px 0 40px; border-top:1px solid rgba(0,0,0,0.03); }
-.cal-wrap{ display:flex; gap:22px; align-items:center; justify-content:space-between; max-width:1100px; padding:0 var(--space); box-sizing:border-box; }
-.cal-left{ min-width:220px; display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
-.save{ font-family:'Great Vibes',cursive; font-size:1.6rem; color:#b07aa5; transform: rotate(-90deg); writing-mode: vertical-rl; }
-.cal-month{ font-family:'Playfair Display',serif; font-size:1.2rem; color:#6b4a85; font-weight:700; }
-
-/* right: the calendar grid container (JS injecte .cal-grid inside) */
-#cal-wide-grid{ flex:1; }
-
-/* responsiveness */
-@media (max-width:900px){
-  .cal-wrap{ flex-direction:column; align-items:stretch; }
-  .save{ transform:none; writing-mode: horizontal-tb; font-size:1.2rem; }
-}
-@media (max-width:520px){
-  .prog-row-3 .prog-card{ flex-basis:100%; max-width:420px; }
-  .prog-row-2 .prog-card.large{ flex-basis:100%; }
-  .prog-script{ font-size:2.4rem; }
-  .prog-card .prog-ico{ width:64px; height:64px; font-size:1.6rem; }
-}
 </style>
 </head>
 <body>
@@ -260,7 +172,7 @@ input:invalid, textarea:invalid { outline: 2px solid rgba(255,0,0,0.12); }
 <section id="accueil">
   <div class="overlay">
     <img src="coeur.png" alt="coeur" class="coeur-top">
-    <img src="INVITATION.png" alt="Photo centrale" class="photo-centre">
+    <img src="INVITATION.png" alt="photo centrale" class="photo-centre">
     <p class="bottom-text">Faites défiler pour découvrir l’événement</p>
     <div class="arrow">⬇️</div>
   </div>
@@ -269,82 +181,80 @@ input:invalid, textarea:invalid { outline: 2px solid rgba(255,0,0,0.12); }
 <!-- PROGRAMME -->
 <section id="programme" class="section">
   <div class="container">
-    <!-- Grand titre (INVITATION) -->
     <h2 class="section-title reveal">INVITATION</h2>
 
-    <div class="names reveal">
+    <div class="names reveal" aria-hidden="false">
       <div class="name">Deborah</div>
-      <div class="name">&amp;</div>
+      <div style="font-family:Playfair Display;color:var(--muted);font-size:1.05rem;margin:0 6px;">&amp;</div>
       <div class="name">Jordan</div>
     </div>
 
     <p class="invitation-message reveal"><strong>Deux coeurs, deux familles, une promesse d'amour éternel.</strong></p>
+    <p class="reveal" style="max-width:72ch;margin:0 auto 8px">
+      Les familles <strong>NYAMABO et BOONGI</strong> ont la joie de vous convier au mariage de leurs enfants
+      <strong style="color:var(--clr-primary)">Deborah &amp; Jordan</strong>.
+    </p>
 
-    <p>Les familles <strong>NYAMABO et BOONGI</strong> ont la joie de vous convier au mariage de leurs enfants
-      <strong>Jordan & Deborah</strong></p>
-
-    <p class="date">Samedi 06 décembre 2025</p>
-    <p class="ville">Autour de la piscine de l'Hôtel Golden Tulip, Cité Kin Oasis, Bandal. Kinshasa, RDC</p>
+    <p class="reveal" style="font-weight:700;color:#32243a">Samedi 06 décembre 2025 — Autour de la piscine, Hôtel Golden Tulip Kin-Oasis, Kinshasa</p>
 
     <!-- Petit titre (Programme) -->
     <h3 class="small-title reveal">Programme de la Cérémonie</h3>
-<!-- GRILLE : 1ère rangée (3 colonnes) -->
-    <div class="prog-row prog-row-3">
+
+    <!-- programme cards (like ref) -->
+    <div class="prog-row reveal prog-row-3" aria-hidden="false">
       <article class="prog-card">
-        <div class="prog-ico">🚗🕒</div>
-        <div class="prog-text">Cérémonie civile et bénédiction nuptiale</div>
-        <div class="prog-time">• 14h00 à 16h00 •</div>
+        <div class="prog-ico">🚗</div>
+        <div class="prog-text">Cérémonie civile &amp; bénédiction</div>
+        <div class="prog-time">14h00 — 16h00</div>
       </article>
 
       <article class="prog-card">
-        <div class="prog-ico">👰🤵</div>
-        <div class="prog-text">Début de la Soirée Dansante : Entrée des mariés</div>
-        <div class="prog-time">• 18h00 •</div>
+        <div class="prog-ico">👰</div>
+        <div class="prog-text">Entrée des mariés</div>
+        <div class="prog-time">18h00</div>
       </article>
 
       <article class="prog-card">
         <div class="prog-ico">🎁</div>
         <div class="prog-text">Réception des cadeaux</div>
-        <div class="prog-time">• 18h30 •</div>
+        <div class="prog-time">18h30</div>
       </article>
     </div>
 
-    <!-- GRILLE : 2ème rangée (2 colonnes larges) -->
-    <div class="prog-row prog-row-2">
+    <div class="prog-row reveal prog-row-2" style="margin-bottom:4px">
       <article class="prog-card large">
-        <div class="prog-ico">🍽️💃</div>
-        <div class="prog-text">Cocktail dinatoire festif et dansant</div>
-        <div class="prog-time">• 19h00 •</div>
+        <div class="prog-ico">🍽️</div>
+        <div class="prog-text">Cocktail dînatoire &amp; danse</div>
+        <div class="prog-time">19h00</div>
       </article>
 
       <article class="prog-card large">
         <div class="prog-ico">🌹</div>
-        <div class="prog-text">Fin de la Soirée - Remerciements des mariés</div>
-        <div class="prog-time">• 23h00 •</div>
+        <div class="prog-text">Clôture &amp; remerciements</div>
+        <div class="prog-time">23h00</div>
       </article>
     </div>
 
-    <p class="prog-note"><strong>N.B : Tenue chic, sourire et ponctualité exigés.</strong></p>
+    <p class="prog-note reveal"><strong>N.B. : Tenue chic — sourire &amp; ponctualité exigés ✨</strong></p>
   </div>
 
-  <!-- CALENDRIER LARGE (bas de section) -->
+  <!-- CALENDAR WIDE (glossy, compact, centered) -->
   <div class="cal-wide">
     <div class="cal-wrap container">
       <div class="cal-left">
         <div class="save">Save the date</div>
         <div class="cal-month">Décembre 2025</div>
       </div>
-      <div class="cal-right" id="cal-wide-grid" aria-hidden="false"></div>
+      <div id="cal-wide-grid" class="cal-right" aria-hidden="false"></div>
     </div>
   </div>
 </section>
-    
+
 <!-- MOODBOARD -->
 <section id="moodboard" class="section">
   <div class="container">
-    <h1 class="section-title reveal">Table d'inspiration</h1>
-    <h2 class="small-title reveal">THÈME : <strong>DOLCE VITA</strong></h2>
-    <p class="section-subtitle reveal">Palette de couleurs</p>
+    <h2 class="section-title reveal">Table d'inspiration</h2>
+    <p class="section-subtitle reveal">Palette &amp; looks</p>
 
     <div class="swatches reveal">
       <div class="swatch" style="background:#EFD807"></div>
@@ -363,7 +273,7 @@ input:invalid, textarea:invalid { outline: 2px solid rgba(255,0,0,0.12); }
       <img src="Dolce12.jpg" alt="">
     </div>
 
-    <h3 class="small-title reveal" style="font-family:'Great Vibes',cursive;color:var(--clr-primary);margin-top:16px;">Outfit Men</h3>
+    <h3 class="small-title reveal" style="font-family:'Great Vibes',cursive;color:var(--clr-primary);margin-top:16px">Outfit Men</h3>
     <div class="mood-grid reveal">
       <img src="Dolce8.jpg" alt="">
       <img src="Dolce9.jpg" alt="">
@@ -373,21 +283,20 @@ input:invalid, textarea:invalid { outline: 2px solid rgba(255,0,0,0.12); }
   </div>
 </section>
 
-<!-- RÉSERVATION -->
+<!-- RESERVATION -->
 <section id="reservation" class="reservation-section section">
   <div class="container">
     <h2 class="section-title reveal">Réservation</h2>
     <p class="section-subtitle reveal">Merci de confirmer votre présence et de laisser un mot pour les mariés 💍</p>
 
-    <form id="reservation-form" class="reveal">
-      <div class="form-group"><label>Prénom</label><input type="text" name="prenom" required></div>
-      <div class="form-group"><label>Postnom</label><input type="text" name="postnom" required></div>
-      <div class="form-group"><label>Téléphone</label><input type="tel" name="telephone" placeholder="243..." required></div>
-      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="exemple@mail.com" required></div>
-      <div class="form-group"><label>Message</label><textarea name="message" rows="3" placeholder="Un petit mot pour les mariés 💖" required></textarea></div>
-
+    <form id="reservation-form" class="reveal" novalidate>
+      <div class="form-group"><label for="prenom">Prénom</label><input id="prenom" name="prenom" type="text" required></div>
+      <div class="form-group"><label for="postnom">Postnom</label><input id="postnom" name="postnom" type="text" required></div>
+      <div class="form-group"><label for="telephone">Téléphone</label><input id="telephone" name="telephone" type="tel" placeholder="+243..." required></div>
+      <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="exemple@mail.com" required></div>
+      <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="3" placeholder="Un petit mot pour les mariés 💖" required></textarea></div>
       <button type="submit" class="submit-btn">Envoyer</button>
-      <p id="form-message" class="form-message"></p>
+      <p id="form-message" class="form-message" aria-live="polite"></p>
     </form>
   </div>
 </section>
@@ -396,42 +305,43 @@ input:invalid, textarea:invalid { outline: 2px solid rgba(255,0,0,0.12); }
 <section id="infos" class="section">
   <div class="container">
     <div class="grid">
-      <div class="card">
-        <h2 class="section-title reveal">Localisation &amp; Contact</h2>
+      <div class="card reveal">
+        <h2 class="section-title">Localisation &amp; Contact</h2>
 
-        <div class="contact-card reveal" style="margin-bottom:16px">
-          <div class="contact-head">
-            <div class="contact-avatar">C</div>
-            <div class="contact-title">
-              <h3>Contact</h3>
-              <p>Pour toute question / confirmation</p>
+        <!-- Contact card -->
+        <div style="margin-bottom:16px" class="card reveal">
+          <div style="display:flex;align-items:center;gap:12px;padding:12px;background:linear-gradient(135deg,var(--clr-primary),var(--clr-secondary));border-radius:12px;color:#fff">
+            <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;font-weight:800">C</div>
+            <div style="line-height:1">
+              <div style="font-weight:800">Contact Réception</div>
+              <div style="opacity:.95;font-size:.9rem">+243 818 354 051 — boongideborah@gmail.com</div>
             </div>
           </div>
 
-          <div class="action-grid">
-            <a class="action-btn primary" href="tel:+243818354051" aria-label="Appeler">Appeler</a>
-            <a class="action-btn" target="_blank" rel="noopener" href="https://wa.me/243818354051?text=Bonjour%2C%20je%20souhaite%20confirmer%20ma%20pr%C3%A9sence.">WhatsApp</a>
-            <a class="action-btn" href="mailto:boongideborah@gmail.com?subject=RSVP%20Invitation&body=Bonjour%2C%20je%20confirme%20ma%20pr%C3%A9sence.">Email</a>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:12px">
+            <a class="btn primary" href="tel:+243818354051">Appeler</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://wa.me/243818354051?text=Bonjour%2C%20je%20souhaite%20confirmer%20ma%20pr%C3%A9sence.">WhatsApp</a>
+            <a class="btn" href="mailto:boongideborah@gmail.com?subject=RSVP%20Invitation">Email</a>
           </div>
         </div>
 
-        <div class="contact-card reveal">
-          <div class="contact-head">
-            <div class="contact-avatar">L</div>
-            <div class="contact-title">
-              <h3 class="venue-name">Hôtel Golden Tulip Kin-Oasis</h3>
-              <div class="lc-row">Cité Kin-Oasis, Av. Kasa-Vubu, Kinshasa, RDC</div>
+        <!-- Golden Tulip location -->
+        <div class="card reveal">
+          <div style="display:flex;align-items:center;gap:12px;padding:12px;background:linear-gradient(135deg,var(--clr-secondary),var(--clr-primary));border-radius:12px;color:#fff;margin-bottom:8px">
+            <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;font-weight:800">L</div>
+            <div style="line-height:1">
+              <div style="font-weight:800">Hôtel Golden Tulip Kin-Oasis</div>
+              <div style="opacity:.95;font-size:.9rem">Cité Kin-Oasis, Av. Kasa-Vubu, Kinshasa, RDC</div>
             </div>
           </div>
 
-          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:12px;">
-            <a href="https://maps.google.com/?q=Hôtel%20Golden%20Tulip%20Kin-Oasis%20Kinshasa" class="btn primary" target="_blank" rel="noopener">Itinéraire</a>
-            <a href="https://www.google.com/maps?q=Hôtel%20Golden%20Tulip%20Kin-Oasis%20Kinshasa&output=embed" class="btn" target="_blank" rel="noopener">Voir sur la carte</a>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:12px">
+            <a class="btn primary" target="_blank" rel="noopener" href="https://maps.google.com/?q=H%C3%B4tel%20Golden%20Tulip%20Kin-Oasis%20Kinshasa">Itinéraire</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps?q=H%C3%B4tel%20Golden%20Tulip%20Kin-Oasis%20Kinshasa&output=embed">Voir sur la carte</a>
           </div>
 
-          <div class="map" style="margin:12px;">
-            <iframe src="https://www.google.com/maps?q=Hôtel%20Golden%20Tulip%20Kin-Oasis%20Kinshasa&output=embed"
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <div class="map" style="margin:12px">
+            <iframe src="https://www.google.com/maps?q=H%C3%B4tel%20Golden%20Tulip%20Kin-Oasis%20Kinshasa&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
           </div>
         </div>
 
@@ -441,103 +351,86 @@ input:invalid, textarea:invalid { outline: 2px solid rgba(255,0,0,0.12); }
 </section>
 
 <script>
-// Reveal animation using IntersectionObserver
+/* Reveal animation */
 const els = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('show');
+const ob = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting) en.target.classList.add('show');
   });
-}, { threshold: 0.18 });
-els.forEach(el => obs.observe(el));
+},{threshold:0.18});
+els.forEach(e=>ob.observe(e));
 
-// Form submission -> Google Apps Script, then redirect thank-you
-document.querySelector('#reservation-form').addEventListener('submit', async e => {
+/* Form submit -> Apps Script then redirect thank-you */
+document.getElementById('reservation-form').addEventListener('submit', async function(e){
   e.preventDefault();
-  const f = e.target, msg = document.getElementById('form-message');
+  const f = e.target;
+  const msg = document.getElementById('form-message');
+  // HTML5 validation
+  if(!f.checkValidity()){
+    msg.textContent = "⚠️ Merci de remplir tous les champs obligatoires.";
+    msg.style.color = "crimson";
+    f.reportValidity();
+    return;
+  }
   const data = Object.fromEntries(new FormData(f));
-  msg.textContent = "⏳ Envoi en cours…"; msg.style.color = "lightgray";
-  try {
+  msg.textContent = "⏳ Envoi en cours…"; msg.style.color = "gray";
+  try{
     await fetch("https://script.google.com/macros/s/AKfycbxsFP-M9EwpOyBZ7ZDfRxPPh7tG-0GOKcs7ZJ4rJoCtyueTa2j4Y5bNHJJ5_9wABdf6/exec", {
       method: "POST",
       body: JSON.stringify(data),
       mode: "no-cors"
     });
-    // redirection vers page merci
+    // redirect to thank you page
     window.location.href = "merci.html";
-  } catch(err) {
-    msg.textContent = "⚠️ Erreur lors de l’envoi."; msg.style.color = "red";
+  }catch(err){
+    console.error(err);
+    msg.textContent = "⚠️ Erreur lors de l'envoi.";
+    msg.style.color = "red";
   }
 });
-(function makeWideCalendar(){
+
+/* Build the wide calendar (Décembre 2025) — compact cells */
+(function buildWideCalendar(){
   const mount = document.getElementById('cal-wide-grid');
   if(!mount) return;
 
-  // config
   const year = 2025;
-  const monthZeroIndex = 11; // décembre (0=janvier)
-  const highlight = 6; // jour mis en évidence
+  const monthIndex = 11; // décembre (0-based)
+  const highlightDay = 6; // jour mis en évidence
 
-  // create wrapper
+  // Create wrapper grid
   const grid = document.createElement('div');
   grid.className = 'cal-grid';
-  // css minimal pour la grille (injecté ici pour être sûr que tout marche)
-  grid.style.display = 'grid';
-  grid.style.gridTemplateColumns = 'repeat(7, 1fr)';
-  grid.style.gap = '8px';
-  grid.style.padding = '14px';
-  grid.style.background = '#fff';
-  grid.style.borderRadius = '12px';
-  grid.style.border = '1px solid #efe6f8';
-  grid.style.boxShadow = '0 10px 30px rgba(112,48,160,0.04)';
 
-  // headers L M M J V S D
+  // headers L..D
   const dow = ['L','M','M','J','V','S','D'];
   dow.forEach(d=>{
     const h = document.createElement('div');
+    h.className = 'dow';
     h.textContent = d;
-    h.style.textAlign = 'center';
-    h.style.fontWeight = '700';
-    h.style.color = '#8a6fb4';
-    h.style.padding = '6px 0';
     grid.appendChild(h);
   });
 
-  // compute blanks (JS getDay: 0=Sun)
-  const firstJs = new Date(year, monthZeroIndex, 1).getDay();
-  const blanks = (firstJs === 0) ? 6 : firstJs - 1;
+  // blanks: JS getDay() => 0=Sunday ... convert to monday-based blanks
+  const firstJs = new Date(year, monthIndex, 1).getDay(); // 0=Sun
+  const blanks = (firstJs === 0) ? 6 : (firstJs - 1);
   for(let i=0;i<blanks;i++){
-    const e = document.createElement('div');
-    e.className = 'blank';
-    e.textContent = '';
-    e.style.opacity = '0.0';
-    grid.appendChild(e);
+    const b = document.createElement('div');
+    b.className = 'blank';
+    b.textContent = '';
+    grid.appendChild(b);
   }
 
-  const days = new Date(year, monthZeroIndex + 1, 0).getDate();
+  const days = new Date(year, monthIndex + 1, 0).getDate();
   for(let d=1; d<=days; d++){
-    const c = document.createElement('div');
-    c.className = 'day';
-    c.textContent = d;
-    c.style.height = '44px';
-    c.style.display = 'flex';
-    c.style.alignItems = 'center';
-    c.style.justifyContent = 'center';
-    c.style.borderRadius = '8px';
-    c.style.fontWeight = '700';
-    c.style.color = '#46324a';
-    if(d === highlight){
-      c.style.background = 'linear-gradient(135deg, var(--lilas), var(--violet))';
-      c.style.color = '#fff';
-      c.style.boxShadow = '0 8px 18px rgba(168,107,232,0.18)';
-      // little decorative dot
-      const dot = document.createElement('span');
-      dot.style.position = 'absolute';
-      // not necessary to add; leave as visual highlight
-    }
-    grid.appendChild(c);
+    const cell = document.createElement('div');
+    cell.className = 'day';
+    cell.textContent = d;
+    if(d === highlightDay) cell.classList.add('highlight');
+    grid.appendChild(cell);
   }
 
-  // mount
+  // append and center
   mount.appendChild(grid);
 })();
 </script>
