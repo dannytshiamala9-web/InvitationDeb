@@ -207,6 +207,138 @@ input:invalid,textarea:invalid{outline:2px solid rgba(255,0,0,0.12)}
   position: relative;
   z-index: 20;
 }
+/* Ligne verticale centrale du programme */
+.programme-wrapper {
+  position: relative;
+}
+
+.programme-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 120px;
+  bottom: 40px;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(64,102,255,0.35),
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+/* Mobile : on enlève la ligne */
+@media (max-width: 768px) {
+  .programme-wrapper::before {
+    display: none;
+  }
+}
+/* ===============================
+   PROGRAMME – RESPONSIVE MOBILE
+   =============================== */
+
+.programme-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* évite le débordement mobile */
+}
+
+/* Desktop & tablette */
+.programme-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 36px;
+  max-width: 100%;
+}
+
+/* Ligne verticale (desktop) */
+.programme-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #000;
+  opacity: 0.4;
+  transform: translateX(-50%);
+}
+
+/* Carte programme */
+.prog-item {
+  padding: 14px 10px;
+  text-align: center;
+}
+
+/* Icône */
+.prog-icon {
+  font-size: 2.1rem;
+  margin-bottom: 6px;
+}
+
+/* Heure */
+.prog-time {
+  font-weight: 800;
+  color: var(--clr-primary);
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+/* Texte */
+.prog-text {
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+/* ===============================
+   MOBILE (iPhone & Android)
+   =============================== */
+@media (max-width: 768px) {
+
+  /* Une seule colonne */
+  .programme-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* Ligne devient horizontale */
+  .programme-wrapper::before {
+    left: 12%;
+    right: 12%;
+    top: auto;
+    bottom: -10px;
+    width: auto;
+    height: 1px;
+    transform: none;
+    opacity: 0.25;
+  }
+
+  /* Cartes plus aérées */
+  .prog-item {
+    padding: 16px 8px;
+  }
+
+  .prog-icon {
+    font-size: 2rem;
+  }
+
+  .prog-text {
+    font-size: 0.92rem;
+  }
+}
+
+/* Très petits écrans (iPhone SE, Android small) */
+@media (max-width: 390px) {
+  .prog-icon {
+    font-size: 1.8rem;
+  }
+
+  .prog-text {
+    font-size: 0.88rem;
+  }
+}
 
 </style>
 </head>
@@ -258,7 +390,7 @@ input:invalid,textarea:invalid{outline:2px solid rgba(255,0,0,0.12)}
 <section id="programme-ceremonie" class="section" style="background:var(--soft-bg);position:relative;">
   <div class="container">
     <h2 class="small-title reveal">Programme de la cérémonie</h2>
-
+   <div class="programme-wrapper"></div>
     <div class="programme-grid">
 
       <div class="prog-item">
@@ -274,7 +406,7 @@ input:invalid,textarea:invalid{outline:2px solid rgba(255,0,0,0.12)}
       </div>
 
       <div class="prog-item">
-        <div class="prog-i<con">🎶</div>
+        <div class="prog-icon">🎶</div>
         <div class="prog-time">19h30</div>
         <div class="prog-text">Accueille des invités par les mariés & soirée dansante</div>
       </div>
@@ -423,38 +555,33 @@ const ob = new IntersectionObserver(entries=>{
 els.forEach(e=>ob.observe(e));
 
 /* Form submit -> Apps Script then redirect thank-you */
+document.getElementById('reservation-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const msg = document.getElementById('form-message');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("reservation-form");
-  const msg = document.getElementById("form-message");
+  if (!form.checkValidity()) {
+    msg.textContent = "⚠️ Merci de remplir tous les champs obligatoires.";
+    msg.style.color = "crimson";
+    form.reportValidity();
+    return;
+  }
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  msg.textContent = "⏳ Envoi en cours…";
+  msg.style.color = "lightgray";
 
-    const formData = new FormData(form);
+  const data = new FormData(form);
 
-    msg.textContent = "⏳ Envoi en cours…";
-    msg.style.color = "white";
+  /* ✅ ENVOI GARANTI (même avec redirection) */
+  navigator.sendBeacon(
+        "https://script.google.com/macros/s/AKfycbxYwZJ8PA8WViDMXR8bel-HbrbfqS0AsNZiOs9wW0RNI34oFuxjMwx6to6q316Sdgyt/exec",
+           data
+  );
 
-    try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbyFKfoZAfzq0RyOc09gl4rstlz9F0wZF0BW5PtRW-sNb7GfhkzDbJYn368fHiF4Jzo/exec",
-           {
-          method: "POST",
-          mode: "no-cors",
-          body: formData
-        }
-      );
-
-      // succès silencieux
-      window.location.href = "merci.html";
-
-    } catch (error) {
-      console.error(error);
-      msg.textContent = "❌ Erreur lors de l'envoi.";
-      msg.style.color = "red";
-    }
-  });
+  /* 🚀 REDIRECTION IMMÉDIATE */
+  setTimeout(() => {
+    window.location.href = "merci.html";
+  }, 300);
 });
 
 /* Build the wide calendar (Décembre 2025) — compact cells */
