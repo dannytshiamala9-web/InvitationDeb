@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>Invitation Digitale - Deborah & Jordan</title>
+<title>Invitation Digitale - Kestia & Deoda </title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500;700&family=Great+Vibes&display=swap" rel="stylesheet" />
 <style>
 /* ===== Palette & base ===== */
@@ -42,8 +42,8 @@ img{max-width:100%;height:auto;display:block}
 
 /* Titles */
 .big-title{font-family:"Playfair Display",serif;color:var(--clr-primary);font-weight:800;font-size:clamp(32px,7vw,56px);line-height:1.02;margin:0 0 .4rem}
-.section-title{font-family:"Playfair Display",serif;color:var(--clr-primary);font-weight:700;font-size:clamp(22px,5.6vw,36px);text-align:center;margin-bottom:.6rem}
-.small-title{font-family:"Playfair Display",serif;color:var(--clr-secondary);font-weight:600;font-size:clamp(14px,3.2vw,18px);text-align:center;margin-bottom:.4rem}
+.section-title{font-family:"Playfair Display",serif;color:var(--clr-primary);font-weight:700;font-size:clamp(30px,7.8vw,60px);text-align:center;margin-bottom:.6rem}
+.small-title{font-family:"Playfair Display",serif;color:var(--clr-secondary);font-weight:600;font-size:clamp(20px,4.3vw,25px);text-align:center;margin-bottom:.4rem}
 .section-subtitle{color:var(--muted);font-size:clamp(13px,2.6vw,16px);margin-bottom:1rem;text-align:center}
 
 /* Buttons */
@@ -164,6 +164,50 @@ input:invalid,textarea:invalid{outline:2px solid rgba(255,0,0,0.12)}
 /* reveal animation */
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}
 .reveal.show{opacity:1;transform:translateY(0)}
+.programme-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  max-width:900px;
+  margin:40px auto 20px;
+}
+.programme-grid::before{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;
+  left:50%;
+  width:2px;
+  background:rgba(112,48,160,.25);
+}
+.prog-item{text-align:center;padding:12px}
+.prog-icon{font-size:42px;margin-bottom:6px}
+.prog-time{font-weight:800;color:var(--clr-primary)}
+.prog-text{font-weight:600;color:#2b1c44}
+@media(max-width:760px){
+  .programme-grid{grid-template-columns:1fr}
+  .programme-grid::before{display:none}
+}
+/* Fix formulaire non cliquable */
+#reservation {
+  position: relative;
+  z-index: 10;
+}
+
+#reservation * {
+  pointer-events: auto;
+}
+
+#reservation::before,
+#reservation::after {
+  pointer-events: none;
+}
+
+.submit-btn {
+  position: relative;
+  z-index: 20;
+}
+
 </style>
 </head>
 <body>
@@ -173,7 +217,7 @@ input:invalid,textarea:invalid{outline:2px solid rgba(255,0,0,0.12)}
   <div class="overlay">
     <img src="coeur.png" alt="coeur" class="coeur-top">
     <img src="INVITATION.png" alt="photo centrale" class="photo-centre">
-    <p class="bottom-text">Faites défiler pour découvrir l’événement</p>
+    <p class="bottom-text">Faites défiler pour découvrir l’intégralité de l'événement</p>
     <div class="arrow">⬇️</div>
   </div>
 </section>
@@ -182,70 +226,88 @@ input:invalid,textarea:invalid{outline:2px solid rgba(255,0,0,0.12)}
 <section id="programme" class="section">
   <div class="container">
     <h2 class="section-title reveal">INVITATION</h2>
-
+<p class="invitation-message reveal"><strong>Entouré de nos familles.</strong></p>
     <div class="names reveal" aria-hidden="false">
-      <div class="name">Deborah</div>
+      <div class="name">Kestia</div>
       <div style="font-family:Playfair Display;color:var(--muted);font-size:1.05rem;margin:0 6px;">&amp;</div>
-      <div class="name">Jordan</div>
+      <div class="name">Deoda</div>
     </div>
 
-    <p class="invitation-message reveal"><strong>Deux coeurs, deux familles, une promesse d'amour éternel.</strong></p>
-    <p class="reveal" style="max-width:72ch;margin:0 auto 8px">
-      Les familles <strong>NYAMABO et BOONGI</strong> ont la joie de vous convier au mariage de leurs enfants
-      <strong style="color:var(--clr-primary)">Deborah &amp; Jordan</strong>.
+<p class="invitation-message reveal">Nous avons l'immense joie et plaisir de vous convier aux festivités de notre <strong>mariage religieux.</strong></p>
+    <p class="reveal" style="max-width:100ch;margin:0 auto 10px">
+      
+      <p class="invitation-message reveal">Ce samedi 21 fevrier 2026</p>
     </p>
-
-    <p class="reveal" style="font-weight:700;color:#32243a">Samedi 06 décembre 2025 — Autour de la piscine, Hôtel Golden Tulip Kin-Oasis, Kinshasa</p>
-
-    <!-- Petit titre (Programme) -->
-    <h3 class="small-title reveal">Programme de la Cérémonie</h3>
-
-    <!-- programme cards (like ref) -->
-    <div class="prog-row reveal prog-row-3" aria-hidden="false">
-      <article class="prog-card">
-        <div class="prog-ico">🚗</div>
-        <div class="prog-text">Cérémonie civile &amp; bénédiction</div>
-        <div class="prog-time">14h00 — 16h00</div>
-      </article>
-
-      <article class="prog-card">
-        <div class="prog-ico">👰</div>
-        <div class="prog-text">Début de la Soirée dansante &amp; Entrée des mariés</div>
-        <div class="prog-time">18h00</div>
-      </article>
-
-      <article class="prog-card">
-        <div class="prog-ico">🎁</div>
-        <div class="prog-text">Réception des cadeaux</div>
-        <div class="prog-time">18h30</div>
-      </article>
-    </div>
-
-    <div class="prog-row reveal prog-row-2" style="margin-bottom:4px">
-      <article class="prog-card large">
-        <div class="prog-ico">🍽️</div>
-        <div class="prog-text">Cocktail dînatoire festif &amp; dansant sous un bon mood</div>
-        <div class="prog-time">19h00</div>
-      </article>
-
-      <article class="prog-card large">
-        <div class="prog-ico">🌹</div>
-        <div class="prog-text">Fin de la Soirée &amp; remerciements des mariéss</div>
-        <div class="prog-time">23h00</div>
-      </article>
-    </div>
-
-    <p class="prog-note reveal"><strong>N.B. : Tenue chic — sourire &amp; ponctualité exigés ✨</strong></p>
-  </div>
-
-  <!-- CALENDAR WIDE (glossy, compact, centered) -->
-  <div class="cal-wide">
-    <div class="cal-wrap container">
-      <div class="cal-left">
-        <div class="save">Save the date</div>
-        <div class="cal-month">Décembre 2025</div>
+  <!-- MINI CALENDRIER -->
+    <div class="mini-cal">
+      <div class="cal-grid">
+        <div>L</div><div>M</div><div>M</div><div>J</div><div>V</div><div>S</div><div>D</div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div>1</div>
+        <div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div>
+        <div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
+        <div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div class="highlight">21</div><div>22</div>
+         <div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
       </div>
-      <div id="cal-wide-grid" class="cal-right" aria-hidden="false"></div>
+    </div>
+      <strong>Adresse : </strong>
+    <p class="reveal" style="font-weight:900;color:#32243a"> Salle <strong>Auberge du Roi </strong>/ ango ango n°19 C/Matadi Q/Ville haute</p>
+
+
+
+<!-- ================= PROGRAMME CEREMONIE ================= -->
+<section id="programme-ceremonie" class="section" style="background:var(--soft-bg);position:relative;">
+  <div class="container">
+    <h2 class="small-title reveal">Programme de la cérémonie</h2>
+
+    <div class="programme-grid">
+
+      <div class="prog-item">
+        <div class="prog-icon">⛪</div>
+        <div class="prog-time">15h30</div>
+        <div class="prog-text">Bénédiction nuptiale</div>
+      </div>
+
+      <div class="prog-item">
+        <div class="prog-icon">📸</div>
+        <div class="prog-time">16h40</div>
+        <div class="prog-text">Séance photo shoot</div>
+      </div>
+
+      <div class="prog-item">
+        <div class="prog-i<con">🎶</div>
+        <div class="prog-time">19h30</div>
+        <div class="prog-text">Accueille des invités par les mariés & soirée dansante</div>
+      </div>
+
+      <div class="prog-item">
+        <div class="prog-icon">👰🤵</div>
+        <div class="prog-time">20h30</div>
+        <div class="prog-text">Entrée & présentation des mariés</div>
+      </div>
+
+      <div class="prog-item">
+        <div class="prog-icon">🎁</div>
+        <div class="prog-time">22h00</div>
+        <div class="prog-text">Remise des cadeaux</div>
+      </div>
+
+      <div class="prog-item">
+        <div class="prog-icon">🍽️</div>
+        <div class="prog-time">22h30</div>
+        <div class="prog-text">Cocktail dînatoire festif</div>
+      </div>
+
+      <div class="prog-item">
+        <div class="prog-icon">💃</div>
+        <div class="prog-time">23h30</div>
+        <div class="prog-text">Musique & danse</div>
+      </div>
+
+      <div class="prog-item">
+        <div class="prog-icon">🎂</div>
+        <div class="prog-time">00h30</div>
+        <div class="prog-text">Gâteau & fin de la soirée</div>
+      </div>
     </div>
   </div>
 </section>
@@ -282,7 +344,9 @@ input:invalid,textarea:invalid{outline:2px solid rgba(255,0,0,0.12)}
       <img src="Dolce11.jpg" alt="">
     </div>
   </div>
+  <p class="prog-note reveal"><strong>N.B. : Port de lunette fumée &amp; ponctualité exigés ✨</strong></p>
 </section>
+
 
 <!-- RESERVATION -->
 <section id="reservation" class="reservation-section section">
@@ -290,13 +354,11 @@ input:invalid,textarea:invalid{outline:2px solid rgba(255,0,0,0.12)}
     <h2 class="section-title reveal">Réservation</h2>
     <p class="section-subtitle reveal">Merci de confirmer votre présence et de laisser un mot pour les mariés 💍</p>
 
-    <form id="reservation-form" class="reveal" novalidate>
-      <div class="form-group"><label for="prenom">Prénom</label><input id="prenom" name="prenom" type="text" required></div>
-      <div class="form-group"><label for="postnom">Postnom</label><input id="postnom" name="postnom" type="text" required></div>
-      <div class="form-group"><label for="telephone">Téléphone</label><input id="telephone" name="telephone" type="tel" placeholder="+243..." required></div>
-      <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="exemple@mail.com" required></div>
-      <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="3" placeholder="Un petit mot pour les mariés 💖" required></textarea></div>
-      <button type="submit" class="submit-btn">Envoyer</button>
+<form id="reservation-form" class="reveal" novalidate>
+  <div class="form-group"><label for="couple">Couple, Monsieur, Madame</label><input id="couple" name="couple" type="text" placeholder="Couple, Monsieur, Madame" required></div>
+  <div class="form-group"><label for="noms">Noms</label><input id="noms" name="noms" type="text" required></div>
+  <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="3" placeholder="Un petit mot pour les mariés 💖" required></textarea></div>
+  <button type="submit" class="submit-btn">Envoyer</button>
       <p id="form-message" class="form-message" aria-live="polite"></p>
     </form>
   </div>
@@ -361,32 +423,38 @@ const ob = new IntersectionObserver(entries=>{
 els.forEach(e=>ob.observe(e));
 
 /* Form submit -> Apps Script then redirect thank-you */
-document.getElementById('reservation-form').addEventListener('submit', async function(e){
-  e.preventDefault();
-  const f = e.target;
-  const msg = document.getElementById('form-message');
-  // HTML5 validation
-  if(!f.checkValidity()){
-    msg.textContent = "⚠️ Merci de remplir tous les champs obligatoires.";
-    msg.style.color = "crimson";
-    f.reportValidity();
-    return;
-  }
-  const data = Object.fromEntries(new FormData(f));
-  msg.textContent = "⏳ Envoi en cours…"; msg.style.color = "gray";
-  try{
-    await fetch("https://script.google.com/macros/s/AKfycbxsFP-M9EwpOyBZ7ZDfRxPPh7tG-0GOKcs7ZJ4rJoCtyueTa2j4Y5bNHJJ5_9wABdf6/exec", {
-      method: "POST",
-      body: JSON.stringify(data),
-      mode: "no-cors"
-    });
-    // redirect to thank you page
-    window.location.href = "merci.html";
-  }catch(err){
-    console.error(err);
-    msg.textContent = "⚠️ Erreur lors de l'envoi.";
-    msg.style.color = "red";
-  }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("reservation-form");
+  const msg = document.getElementById("form-message");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    msg.textContent = "⏳ Envoi en cours…";
+    msg.style.color = "white";
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyFKfoZAfzq0RyOc09gl4rstlz9F0wZF0BW5PtRW-sNb7GfhkzDbJYn368fHiF4Jzo/exec",
+           {
+          method: "POST",
+          mode: "no-cors",
+          body: formData
+        }
+      );
+
+      // succès silencieux
+      window.location.href = "merci.html";
+
+    } catch (error) {
+      console.error(error);
+      msg.textContent = "❌ Erreur lors de l'envoi.";
+      msg.style.color = "red";
+    }
+  });
 });
 
 /* Build the wide calendar (Décembre 2025) — compact cells */
